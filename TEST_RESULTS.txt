@@ -1,0 +1,20 @@
+LODE.ai / Atlas.ai 0.10.1-beta
+
+Automated regression tests: 40 passed.
+Python compilation: passed for app.py and edited Python modules.
+
+Coverage added in this build:
+- Numeric clause reference tokenisation and strict explicit-clause filtering.
+- Retrieval source provenance and context labelling.
+- Retrieval zero-limit behaviour.
+- Project context includes only drawing observations marked Verified by engineer.
+- Vision response schema and bounding-box validation.
+- Groq prompt separation for project context, retrieved dataset material and current question.
+- Vision prompt explicitly treats model certainty as uncalibrated.
+
+Not performed:
+- Live Groq inference.
+- Full Streamlit browser or interactive smoke test.
+- Drawing dataset accuracy evaluation.
+- Independent structural benchmark validation.
+- Full BS 8110 compliance validation.

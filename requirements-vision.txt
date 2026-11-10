@@ -1,0 +1,4 @@
+# Optional explicit CLIP ViT-B/32 encoder diagnostics (large CPU dependencies).
+# Install after requirements.txt: pip install -r requirements-vision.txt
+torch>=2.2
+transformers>=4.45

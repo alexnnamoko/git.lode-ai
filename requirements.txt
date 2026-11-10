@@ -1,0 +1,11 @@
+streamlit>=1.40,<2.0
+reportlab>=4.0
+pandas>=2.0
+matplotlib>=3.7
+PyMuPDF>=1.23
+Pillow>=10.0
+pytesseract>=0.3.10
+opencv-python-headless>=4.9
+python-dotenv>=1.0
+pytest>=8.0
+groq>=0.30.0

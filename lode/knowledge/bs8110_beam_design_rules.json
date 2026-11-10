@@ -1,0 +1,3246 @@
+[
+  {
+    "rule_id": "BS8110-2.2.2.1-ULS-criterion",
+    "code": "BS 8110-1:1997",
+    "clause": "2.2.2.1",
+    "topic": "ULS",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state check"
+    ],
+    "inputs": [],
+    "formula": "structure must not reach ULS by rupture of any section, overturning, or buckling under worst combination of ultimate loads (accounting for elastic/plastic instability or sway)",
+    "outputs": [
+      "ULS_pass_fail"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "2.2.2.2"
+    ],
+    "source_qa_ids": [
+      11
+    ]
+  },
+  {
+    "rule_id": "BS8110-2.2.3.2-deflection-control-method",
+    "code": "BS 8110-1:1997",
+    "clause": "2.2.3.2",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "deflection due to vertical loading, without direct calculation"
+    ],
+    "inputs": [],
+    "formula": "control deflection using span/effective depth ratios given in Section 3, unless specific attention needed to limit deflection to particular values",
+    "outputs": [
+      "method_selection"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.9"
+    ],
+    "source_qa_ids": [
+      14
+    ]
+  },
+  {
+    "rule_id": "BS8110-2.2.4-durability-requirement",
+    "code": "BS 8110-1:1997",
+    "clause": "2.2.4",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [],
+    "formula": "durability requires integrated design, materials and construction with exposure conditions defined at design stage and adequate cover to steel",
+    "outputs": [
+      "durability_principle"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.3"
+    ],
+    "source_qa_ids": [
+      16
+    ]
+  },
+  {
+    "rule_id": "BS8110-2.4.2.1-characteristic-strength-def",
+    "code": "BS 8110-1:1997",
+    "clause": "2.4.2.1",
+    "topic": "concrete_properties",
+    "member_type": "general",
+    "applicability": [
+      "definition applicable to concrete, reinforcement and prestressing tendons"
+    ],
+    "inputs": [],
+    "formula": "characteristic strength = value below which 5% of all possible test results would be expected to fall",
+    "outputs": [
+      "definition"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      25
+    ]
+  },
+  {
+    "rule_id": "BS8110-2.4.2.4-poissons-ratio",
+    "code": "BS 8110-1:1997",
+    "clause": "2.4.2.4",
+    "topic": "concrete_properties",
+    "member_type": "general",
+    "applicability": [
+      "linear elastic analysis of concrete"
+    ],
+    "inputs": [],
+    "formula": "Poisson's ratio = 0.2",
+    "outputs": [
+      "poissons_ratio"
+    ],
+    "limits": {
+      "poissons_ratio": 0.2
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      31
+    ]
+  },
+  {
+    "rule_id": "BS8110-2.4.3.1.1-adverse-beneficial",
+    "code": "BS 8110-1:1997",
+    "clause": "2.4.3.1.1",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "applies when selecting which partial load factor to use for a given load in Table 2.1"
+    ],
+    "inputs": [],
+    "formula": "adverse_factor applies to loads producing a more critical condition at the section considered; beneficial_factor applies to loads producing a less critical condition",
+    "outputs": [
+      "factor_selection"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 2.1"
+    ],
+    "source_qa_ids": [
+      24
+    ]
+  },
+  {
+    "rule_id": "BS8110-T2.1-combo1-dead-imposed",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 2.1",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state",
+      "dead + imposed load combination"
+    ],
+    "inputs": [
+      "Gk",
+      "Qk"
+    ],
+    "formula": "F = 1.4*Gk(adverse) + 1.0*Gk(beneficial) + 1.6*Qk(adverse) + 0*Qk(beneficial)",
+    "outputs": [
+      "design_ultimate_load_F"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "2.4.3.1.1",
+      "Table 2.2"
+    ],
+    "source_qa_ids": [
+      21
+    ]
+  },
+  {
+    "rule_id": "BS8110-T2.1-combo2-dead-wind",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 2.1",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state",
+      "dead + wind load combination"
+    ],
+    "inputs": [
+      "Gk",
+      "Wk"
+    ],
+    "formula": "F = 1.4*Gk(adverse) or 1.0*Gk(beneficial) + 1.4*Wk",
+    "outputs": [
+      "design_ultimate_load_F"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "2.4.3.1.1"
+    ],
+    "source_qa_ids": [
+      22
+    ]
+  },
+  {
+    "rule_id": "BS8110-T2.1-combo3-dead-imposed-wind",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 2.1",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state",
+      "dead + imposed + wind load combination"
+    ],
+    "inputs": [
+      "Gk",
+      "Qk",
+      "Wk"
+    ],
+    "formula": "F = 1.2*Gk + 1.2*Qk + 1.2*Wk",
+    "outputs": [
+      "design_ultimate_load_F"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "2.4.3.1.1"
+    ],
+    "source_qa_ids": [
+      23
+    ]
+  },
+  {
+    "rule_id": "BS8110-T2.2-gammam-bond",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 2.2",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state",
+      "bond strength"
+    ],
+    "inputs": [],
+    "formula": "gamma_m = 1.4",
+    "outputs": [
+      "gamma_m"
+    ],
+    "limits": {
+      "gamma_m": 1.4
+    },
+    "cross_refs": [
+      "2.4.4.1"
+    ],
+    "source_qa_ids": [
+      30
+    ]
+  },
+  {
+    "rule_id": "BS8110-T2.2-gammam-concrete-flexure-axial",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 2.2",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state",
+      "concrete in flexure or axial load"
+    ],
+    "inputs": [],
+    "formula": "gamma_m = 1.50",
+    "outputs": [
+      "gamma_m"
+    ],
+    "limits": {
+      "gamma_m": 1.5
+    },
+    "cross_refs": [
+      "2.4.4.1"
+    ],
+    "source_qa_ids": [
+      28
+    ]
+  },
+  {
+    "rule_id": "BS8110-T2.2-gammam-reinforcement",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 2.2",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state",
+      "reinforcement including prestressing steel"
+    ],
+    "inputs": [],
+    "formula": "gamma_m = 1.15",
+    "outputs": [
+      "gamma_m"
+    ],
+    "limits": {
+      "gamma_m": 1.15
+    },
+    "cross_refs": [
+      "2.4.4.1"
+    ],
+    "source_qa_ids": [
+      27
+    ]
+  },
+  {
+    "rule_id": "BS8110-T2.2-gammam-shear-noreinf",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 2.2",
+    "topic": "loading_load_combinations",
+    "member_type": "general",
+    "applicability": [
+      "ultimate limit state",
+      "shear strength without shear reinforcement"
+    ],
+    "inputs": [],
+    "formula": "gamma_m = 1.25",
+    "outputs": [
+      "gamma_m"
+    ],
+    "limits": {
+      "gamma_m": 1.25
+    },
+    "cross_refs": [
+      "2.4.4.1",
+      "Table 3.8"
+    ],
+    "source_qa_ids": [
+      29
+    ]
+  },
+  {
+    "rule_id": "BS8110-2.5.4-Es-steel",
+    "code": "BS 8110-1:1997",
+    "clause": "2.5.4",
+    "topic": "reinforcement_properties",
+    "member_type": "general",
+    "applicability": [
+      "serviceability limit state section analysis"
+    ],
+    "inputs": [],
+    "formula": "Es = 200 kN/mm^2",
+    "outputs": [
+      "Es"
+    ],
+    "limits": {
+      "Es_kN_per_mm2": 200
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      32
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.1.4.2-notional-horizontal-load",
+    "code": "BS 8110-1:1997",
+    "clause": "3.1.4.2",
+    "topic": "ULS",
+    "member_type": "general",
+    "applicability": [
+      "robustness check",
+      "all buildings"
+    ],
+    "inputs": [
+      "Gk_storey"
+    ],
+    "formula": "H_notional = 0.015*Gk_storey_weight",
+    "outputs": [
+      "notional_horizontal_load"
+    ],
+    "limits": {
+      "percentage_of_characteristic_dead_weight": "1.5%"
+    },
+    "cross_refs": [
+      "3.1.4.3"
+    ],
+    "source_qa_ids": [
+      36
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.1.4.3-ties-requirement",
+    "code": "BS 8110-1:1997",
+    "clause": "3.1.4.3",
+    "topic": "reinforcement_detailing",
+    "member_type": "general",
+    "applicability": [
+      "structures where all load-bearing elements are concrete"
+    ],
+    "inputs": [],
+    "formula": "horizontal and vertical ties provided in accordance with 3.12.3",
+    "outputs": [
+      "ties_requirement"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.3"
+    ],
+    "source_qa_ids": [
+      37
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.1.7.2-min-concrete-class-lightweight",
+    "code": "BS 8110-1:1997",
+    "clause": "3.1.7.2",
+    "topic": "concrete_properties",
+    "member_type": "general",
+    "applicability": [
+      "reinforced concrete",
+      "lightweight aggregate"
+    ],
+    "inputs": [],
+    "formula": "minimum concrete strength class = LC16/18",
+    "outputs": [
+      "fcu_min"
+    ],
+    "limits": {
+      "fcu_min_lightweight": "LC16/18"
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      40
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.1.7.2-min-concrete-class-normalweight",
+    "code": "BS 8110-1:1997",
+    "clause": "3.1.7.2",
+    "topic": "concrete_properties",
+    "member_type": "general",
+    "applicability": [
+      "reinforced concrete",
+      "normal-weight aggregate"
+    ],
+    "inputs": [],
+    "formula": "minimum concrete strength class = C20/25",
+    "outputs": [
+      "fcu_min"
+    ],
+    "limits": {
+      "fcu_min_normal_weight": "C20/25"
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      39
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.1.7.3-design-strength-age",
+    "code": "BS 8110-1:1997",
+    "clause": "3.1.7.3",
+    "topic": "concrete_properties",
+    "member_type": "general",
+    "applicability": [
+      "concrete design strength basis"
+    ],
+    "inputs": [],
+    "formula": "design strength is based on the 28-day characteristic strength unless evidence justifies a higher strength",
+    "outputs": [
+      "design_age_days"
+    ],
+    "limits": {
+      "default_age_days": 28
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      41
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.1-fy-high-yield-steel",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.1",
+    "topic": "reinforcement_properties",
+    "member_type": "general",
+    "applicability": [
+      "hot rolled or cold worked high yield steel"
+    ],
+    "inputs": [],
+    "formula": "fy = 500 N/mm^2",
+    "outputs": [
+      "fy"
+    ],
+    "limits": {
+      "fy": 500
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      43
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.1-fy-mild-steel",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.1",
+    "topic": "reinforcement_properties",
+    "member_type": "general",
+    "applicability": [
+      "hot rolled mild steel"
+    ],
+    "inputs": [],
+    "formula": "fy = 250 N/mm^2",
+    "outputs": [
+      "fy"
+    ],
+    "limits": {
+      "fy": 250
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      42
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.2.2.1-redistribution-condition1",
+    "code": "BS 8110-1:1997",
+    "clause": "3.2.2.1",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "moment redistribution applied to an elastic analysis"
+    ],
+    "inputs": [],
+    "formula": "internal and external forces must remain in equilibrium under all appropriate combinations of design ultimate load",
+    "outputs": [
+      "condition_1_pass_fail"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.2.2.1"
+    ],
+    "source_qa_ids": [
+      48
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.2.2.1-redistribution-condition2",
+    "code": "BS 8110-1:1997",
+    "clause": "3.2.2.1",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "moment redistribution applied",
+      "at sections where resistance moment is reduced"
+    ],
+    "inputs": [
+      "x",
+      "d",
+      "betab"
+    ],
+    "formula": "x <= (betab - 0.4)*d",
+    "outputs": [
+      "neutral_axis_limit_check"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      49
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.2.2.1-redistribution-condition3",
+    "code": "BS 8110-1:1997",
+    "clause": "3.2.2.1",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "moment redistribution applied"
+    ],
+    "inputs": [
+      "M_redistributed",
+      "M_elastic_max"
+    ],
+    "formula": "M_redistributed >= 0.70*M_elastic_max",
+    "outputs": [
+      "condition_3_pass_fail"
+    ],
+    "limits": {
+      "minimum_pct_of_elastic_moment": "70% (90% if >4 storeys and frame provides lateral stability)"
+    },
+    "cross_refs": [
+      "3.2.2.2"
+    ],
+    "source_qa_ids": [
+      50
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.2.2.2-redistribution-limit-tall-frames",
+    "code": "BS 8110-1:1997",
+    "clause": "3.2.2.2",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "structure over 4 storeys where the frame provides lateral stability"
+    ],
+    "inputs": [],
+    "formula": "redistribution limited to 10%; Condition 3 threshold becomes 90% instead of 70%",
+    "outputs": [
+      "redistribution_limit_pct"
+    ],
+    "limits": {
+      "max_redistribution_pct": 10
+    },
+    "cross_refs": [
+      "3.2.2.1"
+    ],
+    "source_qa_ids": [
+      51
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.3.1.1-min-actual-cover",
+    "code": "BS 8110-1:1997",
+    "clause": "3.3.1.1",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [
+      "nominal_cover"
+    ],
+    "formula": "actual_cover >= nominal_cover - 5mm",
+    "outputs": [
+      "actual_cover_min"
+    ],
+    "limits": {
+      "tolerance_mm": 5
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      53
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.3.1.2-cover-vs-bar-size",
+    "code": "BS 8110-1:1997",
+    "clause": "3.3.1.2",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [
+      "bar_size"
+    ],
+    "formula": "cover_to_main_bar >= bar_size (or, for bars in pairs/bundles, size of a single bar of equivalent total area)",
+    "outputs": [
+      "cover_min"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      54
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.3.1.3-max-aggregate-size",
+    "code": "BS 8110-1:1997",
+    "clause": "3.3.1.3",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [
+      "min_section_thickness"
+    ],
+    "formula": "aggregate_size_typical = 20mm; aggregate_size_max <= 0.25*min_section_thickness",
+    "outputs": [
+      "aggregate_size_max"
+    ],
+    "limits": {
+      "typical_mm": 20
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      55
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.3.1.4-cover-against-blinding",
+    "code": "BS 8110-1:1997",
+    "clause": "3.3.1.4",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "concrete cast against adequate blinding"
+    ],
+    "inputs": [],
+    "formula": "nominal_cover >= 50mm (excluding blinding)",
+    "outputs": [
+      "nominal_cover_min_mm"
+    ],
+    "limits": {
+      "min_mm": 50
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      57
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.3.1.4-cover-cast-against-earth",
+    "code": "BS 8110-1:1997",
+    "clause": "3.3.1.4",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "concrete cast directly against earth"
+    ],
+    "inputs": [],
+    "formula": "nominal_cover >= 75mm",
+    "outputs": [
+      "nominal_cover_min_mm"
+    ],
+    "limits": {
+      "min_mm": 75
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      56
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.3.6-fire-cover-vs-corrosion-cover",
+    "code": "BS 8110-1:1997",
+    "clause": "3.3.6",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [],
+    "formula": "Table 3.4 / Figure 3.2 satisfy fire resistance requirements; corrosion-protection cover alone may not suffice for fire protection",
+    "outputs": [
+      "design_note"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.4",
+      "Figure 3.2"
+    ],
+    "source_qa_ids": [
+      60
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.4-fire-cover-1hr-simply-supported",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.4",
+    "topic": "durability_cover",
+    "member_type": "beam",
+    "applicability": [
+      "simply-supported beam",
+      "1 hour fire resistance"
+    ],
+    "inputs": [],
+    "formula": "nominal_cover = 20mm",
+    "outputs": [
+      "nominal_cover_mm"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Figure 3.2"
+    ],
+    "source_qa_ids": [
+      58
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.4-fire-cover-4hr-simply-supported",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.4",
+    "topic": "durability_cover",
+    "member_type": "beam",
+    "applicability": [
+      "simply-supported beam",
+      "4 hour fire resistance"
+    ],
+    "inputs": [],
+    "formula": "nominal_cover = 70mm",
+    "outputs": [
+      "nominal_cover_mm"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Figure 3.2"
+    ],
+    "source_qa_ids": [
+      59
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.1.5-effective-flange-width-Lbeam",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.1.5",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "L-beam",
+      "in absence of more accurate determination"
+    ],
+    "inputs": [
+      "bw",
+      "lz"
+    ],
+    "formula": "beff = min(bw + lz/10, actual_flange_width)",
+    "outputs": [
+      "beff"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.5"
+    ],
+    "source_qa_ids": [
+      67
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.1.5-effective-flange-width-Tbeam",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.1.5",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "T-beam",
+      "in absence of more accurate determination"
+    ],
+    "inputs": [
+      "bw",
+      "lz"
+    ],
+    "formula": "beff = min(bw + lz/5, actual_flange_width)",
+    "outputs": [
+      "beff"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.5"
+    ],
+    "source_qa_ids": [
+      66
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.1.6-lateral-restraint-cantilever",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.1.6",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "cantilever restrained only at the support"
+    ],
+    "inputs": [
+      "bc",
+      "d"
+    ],
+    "formula": "max_clear_distance = min(25*bc, 100*bc^2/d)",
+    "outputs": [
+      "max_clear_distance"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      69
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.1.6-lateral-restraint-simplycont",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.1.6",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "simply-supported or continuous beam",
+      "lateral stability check"
+    ],
+    "inputs": [
+      "bc",
+      "d"
+    ],
+    "formula": "max_clear_distance = min(60*bc, 250*bc^2/d)",
+    "outputs": [
+      "max_clear_distance"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      68
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.5-moment-first-interior-support",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.5",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "Qk <= Gk",
+      "loads substantially uniformly distributed",
+      ">=3 spans",
+      "span length variation <=15% of longest span",
+      "no redistribution of these moments permitted"
+    ],
+    "inputs": [
+      "F",
+      "l"
+    ],
+    "formula": "M = -0.11*F*l",
+    "outputs": [
+      "M"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.3"
+    ],
+    "source_qa_ids": [
+      70,
+      73,
+      77
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.5-moment-interior-supports",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.5",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "Qk <= Gk",
+      "loads substantially uniformly distributed",
+      ">=3 spans",
+      "span length variation <=15% of longest span",
+      "no redistribution of these moments permitted"
+    ],
+    "inputs": [
+      "F",
+      "l"
+    ],
+    "formula": "M = -0.08*F*l",
+    "outputs": [
+      "M"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.3"
+    ],
+    "source_qa_ids": [
+      70,
+      75,
+      77
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.5-moment-mid-interior-span",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.5",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "Qk <= Gk",
+      "loads substantially uniformly distributed",
+      ">=3 spans",
+      "span length variation <=15% of longest span",
+      "no redistribution of these moments permitted"
+    ],
+    "inputs": [
+      "F",
+      "l"
+    ],
+    "formula": "M = 0.07*F*l",
+    "outputs": [
+      "M"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.3"
+    ],
+    "source_qa_ids": [
+      70,
+      74,
+      77
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.5-moment-near-mid-end-span",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.5",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "Qk <= Gk",
+      "loads substantially uniformly distributed",
+      ">=3 spans",
+      "span length variation <=15% of longest span",
+      "no redistribution of these moments permitted"
+    ],
+    "inputs": [
+      "F",
+      "l"
+    ],
+    "formula": "M = 0.09*F*l",
+    "outputs": [
+      "M"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.3"
+    ],
+    "source_qa_ids": [
+      70,
+      72,
+      77
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.5-moment-outer-support",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.5",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "Qk <= Gk",
+      "loads substantially uniformly distributed",
+      ">=3 spans",
+      "span length variation <=15% of longest span",
+      "no redistribution of these moments permitted"
+    ],
+    "inputs": [
+      "F",
+      "l"
+    ],
+    "formula": "M = 0",
+    "outputs": [
+      "M"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.3"
+    ],
+    "source_qa_ids": [
+      70,
+      71,
+      77
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.5-shear-outer-support",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.5",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "Qk <= Gk",
+      "loads substantially uniformly distributed",
+      ">=3 spans",
+      "span length variation <=15% of longest span",
+      "no redistribution of these moments permitted"
+    ],
+    "inputs": [
+      "F"
+    ],
+    "formula": "V = 0.45*F",
+    "outputs": [
+      "V"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.3"
+    ],
+    "source_qa_ids": [
+      70,
+      76,
+      77
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.1-axial-thrust-ignorable",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.1",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "beam section flexural design"
+    ],
+    "inputs": [
+      "N_design",
+      "fcu",
+      "Ac"
+    ],
+    "formula": "axial thrust may be ignored in flexural design if N_design <= 0.1*fcu*Ac",
+    "outputs": [
+      "ignore_axial_flag"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.1"
+    ],
+    "source_qa_ids": [
+      82
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-As-KgtKprime",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "K > K'",
+      "compression reinforcement provided"
+    ],
+    "inputs": [
+      "Kprime",
+      "fcu",
+      "b",
+      "d",
+      "fy",
+      "z",
+      "As_prime"
+    ],
+    "formula": "As = Kprime*fcu*b*d^2/(0.87*fy*z) + As_prime",
+    "outputs": [
+      "As"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      91
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-As-KleKprime",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "K <= K'"
+    ],
+    "inputs": [
+      "M",
+      "fy",
+      "z"
+    ],
+    "formula": "As = M/(0.87*fy*z)",
+    "outputs": [
+      "As"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      88,
+      190
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-Asc-KgtKprime",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "K > K'",
+      "compression reinforcement required"
+    ],
+    "inputs": [
+      "K",
+      "Kprime",
+      "fcu",
+      "b",
+      "d",
+      "fy",
+      "dprime"
+    ],
+    "formula": "As_prime = (K - Kprime)*fcu*b*d^2/(0.87*fy*(d - dprime))",
+    "outputs": [
+      "As_prime"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      90
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-K-formula",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "rectangular beam section design"
+    ],
+    "inputs": [
+      "M",
+      "b",
+      "d",
+      "fcu"
+    ],
+    "formula": "K = M/(b*d^2*fcu)",
+    "outputs": [
+      "K"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      85,
+      188
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-Kprime-10pct",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "moment redistribution <= 10%"
+    ],
+    "inputs": [],
+    "formula": "K' = 0.156",
+    "outputs": [
+      "Kprime"
+    ],
+    "limits": {
+      "neutral_axis_depth_implied": "x <= 0.5d"
+    },
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      83
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-Kprime-formula",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "moment redistribution > 10%"
+    ],
+    "inputs": [
+      "betab"
+    ],
+    "formula": "K' = 0.402*(betab - 0.4) - 0.18*(betab - 0.4)^2",
+    "outputs": [
+      "Kprime"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      84
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-compression-required-condition",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "K",
+      "Kprime"
+    ],
+    "formula": "compression_reinforcement_required = (K > Kprime)",
+    "outputs": [
+      "required_flag"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      89
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-compression-stress-check",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "d'/x > 0.37 (for fy = 500 N/mm^2)"
+    ],
+    "inputs": [
+      "dprime",
+      "x"
+    ],
+    "formula": "compression steel stress < 0.87*fy; obtain actual stress from Figure 2.2 stress-strain curve instead of 0.87fy",
+    "outputs": [
+      "fsc"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Figure 2.2"
+    ],
+    "source_qa_ids": [
+      92
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-lever-arm-KleKprime",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "K <= K'",
+      "no compression reinforcement required"
+    ],
+    "inputs": [
+      "d",
+      "K"
+    ],
+    "formula": "z = d*(0.5 + sqrt(0.25 - K/0.9))",
+    "outputs": [
+      "z"
+    ],
+    "limits": {
+      "z_max": "0.95*d"
+    },
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      86,
+      189
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.4-neutral-axis-depth",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.4",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "once z has been found"
+    ],
+    "inputs": [
+      "d",
+      "z"
+    ],
+    "formula": "x = (d - z)/0.45",
+    "outputs": [
+      "x"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.4"
+    ],
+    "source_qa_ids": [
+      87
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.4.5-eq1-flanged-beam-As",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.4.5 equation 1",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "flanged beam",
+      "neutral axis below flange",
+      "M < betaf*fcu*b*d^2",
+      "redistribution <=10%",
+      "hf < 0.45d"
+    ],
+    "inputs": [
+      "M",
+      "fcu",
+      "bw",
+      "d",
+      "hf",
+      "fy"
+    ],
+    "formula": "As = [M + 0.1*fcu*bw*d*(0.45*d - hf)] / [0.87*fy*(d - 0.5*hf)]",
+    "outputs": [
+      "As"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.5",
+      "Table 3.6"
+    ],
+    "source_qa_ids": [
+      94,
+      95
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.6-betaf-purpose",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.6",
+    "topic": "flexural_design",
+    "member_type": "beam",
+    "applicability": [
+      "flanged beam design",
+      "design ultimate moment exceeds betaf*fcu*b*d^2"
+    ],
+    "inputs": [
+      "b_over_bw",
+      "d_over_hf"
+    ],
+    "formula": "betaf lookup table (see bs8110_tables_and_figures_structured.json Table 3.6)",
+    "outputs": [
+      "betaf"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.4.5"
+    ],
+    "source_qa_ids": [
+      96
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.1-fyv-max",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.1",
+    "topic": "reinforcement_properties",
+    "member_type": "beam",
+    "applicability": [
+      "shear link design"
+    ],
+    "inputs": [],
+    "formula": "fyv <= 500 N/mm^2 regardless of actual reinforcement grade",
+    "outputs": [
+      "fyv_max"
+    ],
+    "limits": {
+      "fyv_max": 500
+    },
+    "cross_refs": [
+      "3.4.5.2"
+    ],
+    "source_qa_ids": [
+      116
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.2-max-shear-stress-limit",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.2",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "applies regardless of shear reinforcement provided",
+      "includes gamma_m=1.25 allowance"
+    ],
+    "inputs": [
+      "fcu"
+    ],
+    "formula": "v_max = min(0.8*sqrt(fcu), 5)",
+    "outputs": [
+      "v_max"
+    ],
+    "limits": {
+      "v_max_N_per_mm2": 5
+    },
+    "cross_refs": [
+      "Table 2.2"
+    ],
+    "source_qa_ids": [
+      98,
+      192
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.2-eq3-design-shear-stress",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.2 equation 3",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "V",
+      "bv",
+      "d"
+    ],
+    "formula": "v = V/(bv*d)",
+    "outputs": [
+      "v"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      97,
+      191
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.7-design-links-bentup",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.7",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "(vc + 0.4) <= v < min(0.8*sqrt(fcu), 5)"
+    ],
+    "inputs": [
+      "bv",
+      "sv",
+      "v",
+      "vc",
+      "fyv"
+    ],
+    "formula": "Asv = bv*sv*(v - vc)/(0.87*fyv); not more than 50% of steel shear resistance may be from bent-up bars",
+    "outputs": [
+      "Asv"
+    ],
+    "limits": {
+      "max_bentup_bar_contribution_pct": 50
+    },
+    "cross_refs": [
+      "3.4.5.6"
+    ],
+    "source_qa_ids": [
+      102
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.7-minimum-links",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.7",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "0.5*vc <= v < (vc + 0.4)"
+    ],
+    "inputs": [
+      "bv",
+      "sv",
+      "fyv"
+    ],
+    "formula": "Asv >= 0.4*bv*sv/(0.87*fyv)",
+    "outputs": [
+      "Asv"
+    ],
+    "limits": {
+      "link_shear_resistance_N_per_mm2": 0.4
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      100,
+      101
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.7-no-links-required",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.7",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "v < 0.5*vc"
+    ],
+    "inputs": [
+      "v",
+      "vc"
+    ],
+    "formula": "no shear reinforcement strictly required (minimum links still generally provided in beams of structural importance; may be omitted in minor members e.g. lintels)",
+    "outputs": [
+      "reinforcement_requirement"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      99
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.8-vc-general-formula",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.8 Note 2",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "As",
+      "bv",
+      "d",
+      "gamma_m"
+    ],
+    "formula": "vc = 0.79*(100*As/(bv*d))^(1/3) * (400/d)^(1/4) / gamma_m",
+    "outputs": [
+      "vc"
+    ],
+    "limits": {
+      "100As_over_bvd_max": 3,
+      "400_over_d_pow_0.25_min": "0.67 (or 1.0 if shear reinf provides >=0.4N/mm2 resistance)"
+    },
+    "cross_refs": [
+      "Table 2.2"
+    ],
+    "source_qa_ids": [
+      105
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.8-vc-strength-modification",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.8",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "fcu > 25 N/mm^2"
+    ],
+    "inputs": [
+      "fcu"
+    ],
+    "formula": "vc_modified = vc_table * (min(fcu,40)/25)^(1/3)",
+    "outputs": [
+      "vc_modified"
+    ],
+    "limits": {
+      "fcu_cap_for_modification": 40
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      106
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.5-link-spacing-span-direction",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.5",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "d"
+    ],
+    "formula": "max_link_spacing_along_span = 0.75*d",
+    "outputs": [
+      "max_spacing"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      103
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.5-link-spacing-transverse",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.5",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "d"
+    ],
+    "formula": "no longitudinal tension bar more than 150mm from a vertical leg; transverse spacing <= d",
+    "outputs": [
+      "max_transverse_offset_mm"
+    ],
+    "limits": {
+      "max_offset_mm": 150
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      104
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.6-bentup-geometry-limits",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.6",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "bent-up bar truss system"
+    ],
+    "inputs": [],
+    "formula": "alpha >= 45deg; beta >= 45deg; giving max bent-up bar spacing sb = 1.5*d; >=50% of steel shear resistance must be from links",
+    "outputs": [
+      "sb_max"
+    ],
+    "limits": {
+      "min_link_shear_resistance_share_pct": 50
+    },
+    "cross_refs": [
+      "3.4.5.5"
+    ],
+    "source_qa_ids": [
+      108
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.6-eq4-bentup-bar-resistance",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.6 equation 4",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "Asb",
+      "fyv",
+      "alpha",
+      "beta"
+    ],
+    "formula": "Vb = Asb*0.87*fyv*(cos(alpha) + sin(alpha)*cot(beta))",
+    "outputs": [
+      "Vb"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.5.6"
+    ],
+    "source_qa_ids": [
+      107
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.8-enhanced-vc-near-support",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.8",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "av < 2d (section within 2d of face of support or concentrated load)"
+    ],
+    "inputs": [
+      "d",
+      "vc",
+      "av"
+    ],
+    "formula": "vc_enhanced = 2*d*vc/av",
+    "outputs": [
+      "vc_enhanced"
+    ],
+    "limits": {
+      "validity_condition": "v at face of support < min(0.8*sqrt(fcu), 5)"
+    },
+    "cross_refs": [
+      "3.4.5.10"
+    ],
+    "source_qa_ids": [
+      109,
+      110
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.9-eq5-enhanced-shear-reinf",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.9 equation 5",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "sections close to supports",
+      "within middle three-quarters of av"
+    ],
+    "inputs": [
+      "av",
+      "bv",
+      "v",
+      "d",
+      "vc",
+      "fyv"
+    ],
+    "formula": "sum_Asv = av*bv*(v - 2*d*vc/av)/(0.87*fyv), with a minimum of 0.4*bv*av/(0.87*fyv)",
+    "outputs": [
+      "sum_Asv"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.5.8"
+    ],
+    "source_qa_ids": [
+      111
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.10-simplified-shear-check",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.10",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "generally uniform loading"
+    ],
+    "inputs": [
+      "d"
+    ],
+    "formula": "shear may be checked at a section distance d from the face of the support; if adequate there, no further check closer to the support is required",
+    "outputs": [
+      "check_location"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      112
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.12-eq6a-vc-shear-axial-compression",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.12 equation 6a",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "section under shear and axial compression"
+    ],
+    "inputs": [
+      "vc",
+      "N",
+      "Vh",
+      "M",
+      "Ac"
+    ],
+    "formula": "vc_prime = vc + 0.6*N*Vh/(M*Ac), with Vh/M capped at 1 (vc unmodified by 3.4.5.8 enhancement)",
+    "outputs": [
+      "vc_prime"
+    ],
+    "limits": {
+      "Vh_over_M_max": 1
+    },
+    "cross_refs": [
+      "Table 3.8"
+    ],
+    "source_qa_ids": [
+      113
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.12-eq6b-vc-limit-shear-cracking",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.12 equation 6b",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "axial load",
+      "checking against shear cracking prior to ULS"
+    ],
+    "inputs": [
+      "vc",
+      "N",
+      "Ac"
+    ],
+    "formula": "vc_doubleprime = 0.83*vc*sqrt(1 + N/(Ac*vc))",
+    "outputs": [
+      "vc_doubleprime"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.4.5.12 equation 6a"
+    ],
+    "source_qa_ids": [
+      114
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.5.13-torsion-applicability",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.5.13",
+    "topic": "shear_design",
+    "member_type": "beam",
+    "applicability": [
+      "normal slab-and-beam or framed construction"
+    ],
+    "inputs": [],
+    "formula": "explicit torsion design only required when the design specifically relies on torsional resistance of the member; otherwise torsional cracking is normally controlled by shear reinforcement",
+    "outputs": [
+      "torsion_design_required_flag"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      115
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.6.3-basic-deflection-limits",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.6.3",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [],
+    "formula": "Table 3.9 basic ratios limit total deflection to span/250; additional criterion after construction of finishes/partitions is span/500 or 20mm (lesser), for spans up to 10m",
+    "outputs": [
+      "deflection_limits"
+    ],
+    "limits": {
+      "total_deflection_limit": "span/250",
+      "post_finishes_limit": "min(span/500, 20mm)"
+    },
+    "cross_refs": [
+      "Table 3.9"
+    ],
+    "source_qa_ids": [
+      117,
+      118
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.9-basic-ratio-cantilever",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.9",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "rectangular section",
+      "cantilever"
+    ],
+    "inputs": [],
+    "formula": "basic_span_depth_ratio = 7",
+    "outputs": [
+      "ratio"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      121,
+      193
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.9-basic-ratio-continuous",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.9",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "rectangular section",
+      "continuous"
+    ],
+    "inputs": [],
+    "formula": "basic_span_depth_ratio = 26",
+    "outputs": [
+      "ratio"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      120
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.9-basic-ratio-simply-supported",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.9",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "rectangular section",
+      "simply supported"
+    ],
+    "inputs": [],
+    "formula": "basic_span_depth_ratio = 20",
+    "outputs": [
+      "ratio"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      119
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.6.4-long-span-modification",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.6.4",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "span > 10m",
+      "deflection after finishes must be limited",
+      "except cantilevers"
+    ],
+    "inputs": [
+      "span"
+    ],
+    "formula": "modified_ratio = table_3_9_ratio * (10/span)",
+    "outputs": [
+      "modified_ratio"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.9"
+    ],
+    "source_qa_ids": [
+      122
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.10-note3-fs-unknown-redistribution",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.10 Note 3",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "continuous beam",
+      "redistribution % unknown",
+      "mid-span moment >= elastic ultimate moment"
+    ],
+    "inputs": [
+      "fy"
+    ],
+    "formula": "fs = (2/3)*fy",
+    "outputs": [
+      "fs"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.10 equation 8"
+    ],
+    "source_qa_ids": [
+      125
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.10-eq7-tension-modification-factor",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.10 equation 7",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "fs",
+      "M",
+      "b",
+      "d"
+    ],
+    "formula": "modification_factor = 0.55 + (477 - fs)/(120*(0.9 + M/(b*d^2)))",
+    "outputs": [
+      "modification_factor"
+    ],
+    "limits": {
+      "cap": 2.0
+    },
+    "cross_refs": [
+      "Table 3.9"
+    ],
+    "source_qa_ids": [
+      123,
+      198
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.10-eq8-service-stress-estimate",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.10 equation 8 (Note 2)",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "fy",
+      "As_req",
+      "As_prov",
+      "betab"
+    ],
+    "formula": "fs = (2*fy*As_req)/(3*As_prov*betab)",
+    "outputs": [
+      "fs"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.10 equation 7"
+    ],
+    "source_qa_ids": [
+      124,
+      199
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.11-note2-compression-bars-included",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.11 Note 2",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [],
+    "formula": "all bars in the compression zone may be included in As', even bars not effectively tied with links",
+    "outputs": [
+      "As_prime_definition"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.11 equation 9"
+    ],
+    "source_qa_ids": [
+      127
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.11-eq9-compression-modification-factor",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.11 equation 9",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "As_prime",
+      "b",
+      "d"
+    ],
+    "formula": "modification_factor = 1 + (100*As_prime/(b*d)) / (3 + 100*As_prime/(b*d))",
+    "outputs": [
+      "modification_factor"
+    ],
+    "limits": {
+      "cap": 1.5
+    },
+    "cross_refs": [
+      "Table 3.9"
+    ],
+    "source_qa_ids": [
+      126,
+      200
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.6.7-creep-shrinkage-reduction",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.6.7",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "free shrinkage strain > 0.00075, or creep coefficient > 8, or other abnormally adverse conditions"
+    ],
+    "inputs": [],
+    "formula": "permissible span/depth ratio should be reduced; reduction of more than 15% unlikely to be required",
+    "outputs": [
+      "reduction_pct_max"
+    ],
+    "limits": {
+      "max_reduction_pct": 15
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      128
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.4.7-flexural-crack-control",
+    "code": "BS 8110-1:1997",
+    "clause": "3.4.7",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [],
+    "formula": "flexural cracking controlled via bar-spacing rules of 3.12.11.2; if wider spacings needed, crack widths must be checked by calculation",
+    "outputs": [
+      "control_method"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.11.2"
+    ],
+    "source_qa_ids": [
+      129
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.24-bar-schedule-deduction-straight",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.1.4 / Table 3.24",
+    "topic": "reinforcement_detailing",
+    "member_type": "general",
+    "applicability": [
+      "straight bars, any length"
+    ],
+    "inputs": [],
+    "formula": "deduction = 40mm",
+    "outputs": [
+      "deduction_mm"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      169
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.24-bar-schedule-deduction-0to1m",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.24",
+    "topic": "reinforcement_detailing",
+    "member_type": "general",
+    "applicability": [
+      "links and other bent bars",
+      "distance between concrete faces 0-1m"
+    ],
+    "inputs": [],
+    "formula": "deduction = 10mm",
+    "outputs": [
+      "deduction_mm"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      165
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.4.1-max-bars-in-bundle",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.4.1",
+    "topic": "reinforcement_detailing",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [],
+    "formula": "maximum of 4 bars permitted in a bundle or group in contact (including at laps)",
+    "outputs": [
+      "max_bundle_count"
+    ],
+    "limits": {
+      "max_bars": 4
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      164
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.25-min-compression-general",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.25",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "compression reinforcement, general rule, 100Asc/Acc, where required for ULS"
+    ],
+    "inputs": [],
+    "formula": "As_min_pct = 0.4% (both fy=250 and fy=500)",
+    "outputs": [
+      "Asc_min_pct"
+    ],
+    "limits": {
+      "Asc_min_pct": 0.4
+    },
+    "cross_refs": [
+      "3.12.5.3"
+    ],
+    "source_qa_ids": [
+      135
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.25-min-tension-Lbeam-flange-tension",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.25",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "L-beam, flange in tension, 100As/bwh"
+    ],
+    "inputs": [
+      "fy"
+    ],
+    "formula": "As_min_pct lookup: fy250=0.36%, fy500=0.20%",
+    "outputs": [
+      "As_min_pct"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.5.3"
+    ],
+    "source_qa_ids": [
+      132
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.25-min-tension-Tbeam-flange-tension",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.25",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "T-beam, flange in tension, 100As/bwh"
+    ],
+    "inputs": [
+      "fy"
+    ],
+    "formula": "As_min_pct lookup: fy250=0.48%, fy500=0.26%",
+    "outputs": [
+      "As_min_pct"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.5.3"
+    ],
+    "source_qa_ids": [
+      131
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.25-min-tension-flanged-web-tension-ge0.4",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.25",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "flanged beam, web in tension, bw/b >= 0.4, 100As/bwh"
+    ],
+    "inputs": [
+      "fy"
+    ],
+    "formula": "As_min_pct lookup: fy250=0.24%, fy500=0.13%",
+    "outputs": [
+      "As_min_pct"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.5.3"
+    ],
+    "source_qa_ids": [
+      134
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.25-min-tension-flanged-web-tension-lt0.4",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.25",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "flanged beam, web in tension, bw/b < 0.4, 100As/bwh"
+    ],
+    "inputs": [
+      "fy"
+    ],
+    "formula": "As_min_pct lookup: fy250=0.32%, fy500=0.18%",
+    "outputs": [
+      "As_min_pct"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.5.3"
+    ],
+    "source_qa_ids": [
+      133
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.25-min-tension-rect",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.25",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "rectangular beam section, tension reinforcement, 100As/Ac"
+    ],
+    "inputs": [
+      "fy"
+    ],
+    "formula": "As_min_pct lookup: fy250=0.24%, fy500=0.13%",
+    "outputs": [
+      "As_min_pct"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.5.3"
+    ],
+    "source_qa_ids": [
+      130,
+      194
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.5.4-min-side-face-bar-size",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.5.4",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "side faces of beams, crack control"
+    ],
+    "inputs": [
+      "sb",
+      "b",
+      "fy"
+    ],
+    "formula": "bar_size_min = sqrt(sb*b/fy) (or as needed if b>500mm treat b as 500mm)",
+    "outputs": [
+      "bar_size_min"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.11.2.6"
+    ],
+    "source_qa_ids": [
+      137
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.6.1-max-reinforcement",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.6.1",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "tension or compression reinforcement in a beam"
+    ],
+    "inputs": [
+      "Ac"
+    ],
+    "formula": "As_max = 0.04*Ac (tension); Asc_max = 0.04*Ac (compression)",
+    "outputs": [
+      "As_max"
+    ],
+    "limits": {
+      "max_pct_of_Ac": 4
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      136,
+      195
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.7.1-compression-bar-containment-links",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.7.1",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "containment of compression reinforcement"
+    ],
+    "inputs": [
+      "largest_comp_bar_size",
+      "smallest_comp_bar_size"
+    ],
+    "formula": "link_size >= max(0.25*largest_comp_bar_size, 6mm); max_link_spacing = 12*smallest_comp_bar_size",
+    "outputs": [
+      "link_size_min",
+      "max_link_spacing"
+    ],
+    "limits": {
+      "min_link_size_mm": 6
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      138
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.7.2-compression-link-restraint-angle",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.7.2",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [],
+    "formula": "every corner bar and each alternate bar restrained by a link with included angle <=135deg; no compression bar more than 150mm from a restrained bar",
+    "outputs": [
+      "restraint_rule"
+    ],
+    "limits": {
+      "max_unrestrained_distance_mm": 150,
+      "max_included_angle_deg": 135
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      139
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.3-eq48-anchorage-bond-stress",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.3 equation 48",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "Fbt",
+      "phi",
+      "l"
+    ],
+    "formula": "fbu = Fbt/(pi*phi*l)",
+    "outputs": [
+      "fbu"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      140
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.4-beta-exception-no-min-links",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.4",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [
+      "minimum links per Table 3.7 not provided in the beam (does not apply to slabs)"
+    ],
+    "inputs": [],
+    "formula": "use beta value for plain bars irrespective of actual bar type",
+    "outputs": [
+      "beta_override"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.26"
+    ],
+    "source_qa_ids": [
+      145
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.4-eq49-design-ultimate-anchorage-bond-stress",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.4 equation 49",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "beta",
+      "fcu"
+    ],
+    "formula": "fbu = beta*sqrt(fcu)",
+    "outputs": [
+      "fbu"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.26"
+    ],
+    "source_qa_ids": [
+      141,
+      196
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.26-bond-coefficient-beta",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.26",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "general",
+    "applicability": [
+      "used as input to anchorage bond stress formula (3.12.8.4 equation 49)"
+    ],
+    "inputs": [
+      "bar_type"
+    ],
+    "formula": "beta lookup: plain_bars={tension:0.28,compression:0.35}; type1_deformed={tension:0.40,compression:0.50}; type2_deformed={tension:0.50,compression:0.63}; fabric={tension:0.65,compression:0.81}",
+    "outputs": [
+      "beta"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.8.4 equation 49"
+    ],
+    "source_qa_ids": [
+      142,
+      143,
+      144
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.9-connection-positioning",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.9",
+    "topic": "reinforcement_detailing",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [],
+    "formula": "lapped, welded or mechanically-jointed connections positioned away from points of high stress where possible, and preferably staggered",
+    "outputs": [
+      "positioning_rule"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      166
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.11-min-lap-length",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.11",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [
+      "bar_size"
+    ],
+    "formula": "lap_length_min = max(15*bar_size, 300); 250mm minimum for fabric",
+    "outputs": [
+      "lap_length_min_mm"
+    ],
+    "limits": {
+      "absolute_min_mm": 300,
+      "fabric_min_mm": 250
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      146,
+      197
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.12-transverse-links-at-lap",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.12",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "both bars at lap exceed size 20",
+      "cover < 1.5*smaller bar size"
+    ],
+    "inputs": [],
+    "formula": "transverse links required at lap: link size >= 0.25*smaller_bar_size, spacing <= 200mm",
+    "outputs": [
+      "link_requirement"
+    ],
+    "limits": {
+      "max_link_spacing_mm": 200
+    },
+    "cross_refs": [
+      "3.12.8.11"
+    ],
+    "source_qa_ids": [
+      147
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.13-lap-increase-top-and-corner",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.13",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [
+      "top-of-section condition AND corner condition both apply"
+    ],
+    "inputs": [],
+    "formula": "tension_lap_length *= 2.0",
+    "outputs": [
+      "lap_length_factor"
+    ],
+    "limits": {
+      "factor": 2.0
+    },
+    "cross_refs": [
+      "3.12.8.11"
+    ],
+    "source_qa_ids": [
+      149
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.13-lap-increase-top-cover",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.13",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [
+      "lap at top of section",
+      "cover < 2*bar_size"
+    ],
+    "inputs": [],
+    "formula": "tension_lap_length *= 1.4",
+    "outputs": [
+      "lap_length_factor"
+    ],
+    "limits": {
+      "factor": 1.4
+    },
+    "cross_refs": [
+      "3.12.8.11"
+    ],
+    "source_qa_ids": [
+      148
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.14-max-reinforcement-single-layer-lap",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.14",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [
+      "tension lap"
+    ],
+    "inputs": [
+      "section_breadth"
+    ],
+    "formula": "sum of bar sizes in a layer at the lap <= 0.4*section_breadth",
+    "outputs": [
+      "max_layer_fraction"
+    ],
+    "limits": {
+      "max_fraction_of_breadth": 0.4
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      150
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.15-compression-lap-length",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.15",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [],
+    "formula": "compression lap length is related to (derived from) the compression anchorage length",
+    "outputs": [
+      "lap_length_basis"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      151
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.18-welded-joint-compression-strength",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.18",
+    "topic": "reinforcement_detailing",
+    "member_type": "general",
+    "applicability": [
+      "welded joint in compression"
+    ],
+    "inputs": [],
+    "formula": "design_strength_fraction = 1.00",
+    "outputs": [
+      "design_strength_fraction"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      168
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.18-welded-joint-tension-strength",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.18",
+    "topic": "reinforcement_detailing",
+    "member_type": "general",
+    "applicability": [
+      "welded joint in tension"
+    ],
+    "inputs": [],
+    "formula": "design_strength_fraction = 0.80 (or 1.00 if welding strictly supervised and <=20% of tensile reinforcement at any cross-section is welded)",
+    "outputs": [
+      "design_strength_fraction"
+    ],
+    "limits": {
+      "default_pct": 80,
+      "supervised_pct": 100,
+      "supervised_max_welded_pct": 20
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      167
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.23-bend90-effective-anchorage",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.23",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "general",
+    "applicability": [
+      "90 degree bend"
+    ],
+    "inputs": [
+      "r_internal",
+      "bar_size"
+    ],
+    "formula": "anchorage_length = max(4*r_internal, actual_bar_length); r_internal capped implicitly at 12*bar_size",
+    "outputs": [
+      "anchorage_length"
+    ],
+    "limits": {
+      "max_multiple_of_bar_size": 12
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      153
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.23-hook-effective-anchorage",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.23",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "general",
+    "applicability": [
+      "180 degree hook"
+    ],
+    "inputs": [
+      "r_internal",
+      "bar_size"
+    ],
+    "formula": "anchorage_length = max(8*r_internal, actual_bar_length_in_hook_incl_straight); r_internal capped implicitly at 24*bar_size",
+    "outputs": [
+      "anchorage_length"
+    ],
+    "limits": {
+      "max_multiple_of_bar_size": 24
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      152
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.25.1-bearing-stress-check-exemption",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.25.1",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "general",
+    "applicability": [
+      "bar does not extend or is not stressed beyond a point 4*bar_diameter past the end of the bend, at ULS"
+    ],
+    "inputs": [],
+    "formula": "bearing stress inside the bend need not be checked",
+    "outputs": [
+      "check_required_flag"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.8.25.2 equation 50"
+    ],
+    "source_qa_ids": [
+      171
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.8.25.2-eq50-bearing-stress-inside-bend",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.8.25.2 equation 50",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [
+      "Fbt",
+      "r",
+      "phi",
+      "ab"
+    ],
+    "formula": "bearing_stress = 2*Fbt/(r*phi*(1 + 2*phi/ab))",
+    "outputs": [
+      "bearing_stress"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "3.12.8.25.1"
+    ],
+    "source_qa_ids": [
+      170
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.9.1-min-extension-beyond-cutoff",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.9.1",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [
+      "beyond theoretical cut-off point of a flexural member"
+    ],
+    "inputs": [
+      "d",
+      "bar_size"
+    ],
+    "formula": "min_extension = max(d, 12*bar_size)",
+    "outputs": [
+      "min_extension"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      154
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.9.4-simply-supported-end-anchorage",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.9.4",
+    "topic": "anchorage_lap_lengths",
+    "member_type": "beam",
+    "applicability": [
+      "simply-supported end of a member",
+      "tension bar"
+    ],
+    "inputs": [
+      "bar_size",
+      "d"
+    ],
+    "formula": "option_a: anchorage_length = 12*bar_size beyond support centre-line (no bend/hook before centre); option_b: anchorage_length = 12*bar_size + d/2 from face of support (no bend/hook before d/2 from face)",
+    "outputs": [
+      "anchorage_length"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      155
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.10.2-simplified-curtailment-applicability",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.10.2",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "predominantly uniformly distributed loads",
+      "continuous beams: approximately equal spans"
+    ],
+    "inputs": [],
+    "formula": "simplified curtailment rules of Figure 3.24 may be used",
+    "outputs": [
+      "applicability_flag"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Figure 3.24"
+    ],
+    "source_qa_ids": [
+      156
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.11.1-min-horizontal-bar-spacing",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.11.1",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "hagg"
+    ],
+    "formula": "min_horizontal_spacing = hagg + 5mm",
+    "outputs": [
+      "min_spacing_mm"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      157
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.11.1-min-vertical-row-spacing",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.11.1",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [
+      "hagg"
+    ],
+    "formula": "min_vertical_spacing = (2/3)*hagg",
+    "outputs": [
+      "min_spacing_mm"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      158
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.28-max-spacing-fy250-0pct",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.28",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "fy=250 N/mm^2",
+      "0% redistribution"
+    ],
+    "inputs": [],
+    "formula": "max_clear_spacing = 280mm",
+    "outputs": [
+      "max_spacing_mm"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      160
+    ]
+  },
+  {
+    "rule_id": "BS8110-T3.28-max-spacing-fy500-0pct",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 3.28",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "fy=500 N/mm^2",
+      "0% redistribution"
+    ],
+    "inputs": [],
+    "formula": "max_clear_spacing = 155mm",
+    "outputs": [
+      "max_spacing_mm"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      159
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.11.2.4-alt-spacing-expression",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.11.2.4",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [
+      "alternative to Table 3.28 lookup"
+    ],
+    "inputs": [
+      "fs"
+    ],
+    "formula": "max_clear_spacing = min(47000/fs, 300)",
+    "outputs": [
+      "max_spacing_mm"
+    ],
+    "limits": {
+      "absolute_cap_mm": 300
+    },
+    "cross_refs": [
+      "Table 3.10 equation 8"
+    ],
+    "source_qa_ids": [
+      161
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.11.2.5-bar-to-face-distance",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.11.2.5",
+    "topic": "cracking_deflection",
+    "member_type": "beam",
+    "applicability": [],
+    "inputs": [],
+    "formula": "distance from beam face to nearest longitudinal tension bar <= 0.5 * (Table 3.28 clear distance, or 3.12.11.2.4 value)",
+    "outputs": [
+      "max_face_distance"
+    ],
+    "limits": {},
+    "cross_refs": [
+      "Table 3.28",
+      "3.12.11.2.4"
+    ],
+    "source_qa_ids": [
+      162
+    ]
+  },
+  {
+    "rule_id": "BS8110-3.12.11.2.6-side-face-bar-spacing",
+    "code": "BS 8110-1:1997",
+    "clause": "3.12.11.2.6",
+    "topic": "reinforcement_detailing",
+    "member_type": "beam",
+    "applicability": [
+      "beam overall depth > 750mm"
+    ],
+    "inputs": [],
+    "formula": "side-face longitudinal bars spaced <= 250mm, distributed over two-thirds of overall depth measured from tension face",
+    "outputs": [
+      "max_spacing_mm"
+    ],
+    "limits": {
+      "max_spacing_mm": 250
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      163
+    ]
+  },
+  {
+    "rule_id": "BS8110-6.1-concrete-conformity-standard",
+    "code": "BS 8110-1:1997",
+    "clause": "6.1",
+    "topic": "concrete_properties",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [],
+    "formula": "selection and conformity of concrete governed by BS 8500-1",
+    "outputs": [
+      "governing_standard"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      174
+    ]
+  },
+  {
+    "rule_id": "BS8110-6.1-cube-testing-standards",
+    "code": "BS 8110-1:1997",
+    "clause": "6.1",
+    "topic": "concrete_properties",
+    "member_type": "general",
+    "applicability": [
+      "special-purpose concrete cube testing"
+    ],
+    "inputs": [],
+    "formula": "governed by BS EN 12390-1, BS EN 12390-2, BS EN 12390-3",
+    "outputs": [
+      "governing_standards"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      175
+    ]
+  },
+  {
+    "rule_id": "BS8110-6.2.2-overworking-caution",
+    "code": "BS 8110-1:1997",
+    "clause": "6.2.2",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [],
+    "inputs": [],
+    "formula": "avoid overworking surface / adding water during finishing: resulting laitance has impaired strength/durability and is vulnerable to freeze-thaw and de-icing salt damage",
+    "outputs": [
+      "workmanship_note"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      177
+    ]
+  },
+  {
+    "rule_id": "BS8110-6.2.3.2-min-curing-temp",
+    "code": "BS 8110-1:1997",
+    "clause": "6.2.3.2",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "during minimum curing period"
+    ],
+    "inputs": [],
+    "formula": "concrete surface temperature must not fall below 5 degC",
+    "outputs": [
+      "min_surface_temp_C"
+    ],
+    "limits": {
+      "min_temp_C": 5
+    },
+    "cross_refs": [],
+    "source_qa_ids": [
+      179
+    ]
+  },
+  {
+    "rule_id": "BS8110-T6.1-curing-period-average",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 6.1",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "CEM I 42.5 or CEM I 52.5",
+      "average ambient conditions",
+      "surface temp 5-10 degC"
+    ],
+    "inputs": [],
+    "formula": "min_curing_days = 4",
+    "outputs": [
+      "min_curing_days"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      180
+    ]
+  },
+  {
+    "rule_id": "BS8110-T6.2-formwork-strike-soffit-beams",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 6.2",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "soffit formwork to beams, props retained to slabs",
+      "surface temp >=16 degC"
+    ],
+    "inputs": [],
+    "formula": "min_period = 10 days",
+    "outputs": [
+      "min_period"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      185
+    ]
+  },
+  {
+    "rule_id": "BS8110-T6.2-formwork-strike-soffit-slabs",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 6.2",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "soffit formwork to slabs, props left in",
+      "surface temp >=16 degC"
+    ],
+    "inputs": [],
+    "formula": "min_period = 4 days",
+    "outputs": [
+      "min_period"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      184
+    ]
+  },
+  {
+    "rule_id": "BS8110-T6.2-formwork-strike-vertical",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 6.2",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "vertical formwork to columns, walls, large beams",
+      "surface temp >=16 degC"
+    ],
+    "inputs": [],
+    "formula": "min_period = 12 hours",
+    "outputs": [
+      "min_period"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      183
+    ]
+  },
+  {
+    "rule_id": "BS8110-T6.2-props-removal-beams",
+    "code": "BS 8110-1:1997",
+    "clause": "Table 6.2",
+    "topic": "durability_cover",
+    "member_type": "general",
+    "applicability": [
+      "props to beams",
+      "surface temp >=16 degC"
+    ],
+    "inputs": [],
+    "formula": "min_period = 14 days",
+    "outputs": [
+      "min_period"
+    ],
+    "limits": {},
+    "cross_refs": [],
+    "source_qa_ids": [
+      186
+    ]
+  }
+]

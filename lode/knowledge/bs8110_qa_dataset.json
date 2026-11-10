@@ -1,0 +1,1402 @@
+[
+  {
+    "id": 1,
+    "type": "Definition",
+    "clause": "1.1",
+    "question": "What is the scope of BS 8110-1:1997?",
+    "answer": "It gives recommendations for the structural use of concrete in buildings and structures, excluding bridges and structural concrete made with high alumina cement."
+  },
+  {
+    "id": 2,
+    "type": "Definition",
+    "clause": "1.3.1.1",
+    "question": "How does BS 8110-1 define 'design ultimate load'?",
+    "answer": "The design load for the ultimate limit state."
+  },
+  {
+    "id": 3,
+    "type": "Definition",
+    "clause": "1.3.1.1",
+    "question": "How does BS 8110-1 define 'design service load'?",
+    "answer": "The design load for the serviceability limit state."
+  },
+  {
+    "id": 4,
+    "type": "Conceptual",
+    "clause": "1.3.1.1 footnote",
+    "question": "How are design loads obtained from characteristic loads?",
+    "answer": "Design loads are obtained by multiplying the characteristic loads by the appropriate partial safety factor for loading, γf."
+  },
+  {
+    "id": 5,
+    "type": "Material properties",
+    "clause": "1.4",
+    "question": "What symbol does BS 8110-1 use for the characteristic strength of concrete, and what does it represent?",
+    "answer": "fcu — the characteristic (cube) strength of concrete."
+  },
+  {
+    "id": 6,
+    "type": "Material properties",
+    "clause": "1.4",
+    "question": "What symbol does BS 8110-1 use for the characteristic strength of reinforcement?",
+    "answer": "fy."
+  },
+  {
+    "id": 7,
+    "type": "Definition",
+    "clause": "1.4",
+    "question": "What do γf and γm represent in BS 8110-1 notation?",
+    "answer": "γf is the partial safety factor for load; γm is the partial safety factor for the strength of materials."
+  },
+  {
+    "id": 8,
+    "type": "Design principles",
+    "clause": "2.1.1",
+    "question": "What is the aim of design according to BS 8110-1?",
+    "answer": "To achieve an acceptable probability that the structure will perform satisfactorily during its intended life, sustaining loads and deformations of normal construction and use with adequate durability and resistance to misuse and fire."
+  },
+  {
+    "id": 9,
+    "type": "Design principles",
+    "clause": "2.1.2",
+    "question": "What design method does BS 8110-1 recommend?",
+    "answer": "Limit state design, based on accepted theory, experiment and experience, with due regard for durability; calculations alone do not produce safe, serviceable, durable structures — suitable materials, quality control and supervision are equally important."
+  },
+  {
+    "id": 10,
+    "type": "Conceptual",
+    "clause": "2.2.1",
+    "question": "What is the usual approach to checking limit states in BS 8110-1 design?",
+    "answer": "Design on the most critical limit state and then check that the remaining limit states will not be reached."
+  },
+  {
+    "id": 11,
+    "type": "Ultimate Limit State",
+    "clause": "2.2.2.1",
+    "question": "What must the structure satisfy at the ultimate limit state (ULS) per 2.2.2.1?",
+    "answer": "No ULS should be reached by rupture of any section, overturning, or buckling under the worst combination of ultimate loads, with account taken of elastic/plastic instability or sway."
+  },
+  {
+    "id": 12,
+    "type": "Conceptual",
+    "clause": "2.2.2.2",
+    "question": "What design principle addresses structural robustness in BS 8110-1?",
+    "answer": "Structures should be planned and designed so they are not unreasonably susceptible to the effects of accidents, avoiding situations where damage to a small area or failure of a single element could cause collapse of major parts of the structure."
+  },
+  {
+    "id": 13,
+    "type": "Serviceability",
+    "clause": "2.2.3.1",
+    "question": "What is considered in serviceability limit state (SLS) design per 2.2.3.1?",
+    "answer": "Effects such as temperature, creep, shrinkage, sway, settlement and cyclic loading, as appropriate, using material properties and design loads appropriate to the SLS."
+  },
+  {
+    "id": 14,
+    "type": "Deflection",
+    "clause": "2.2.3.2",
+    "question": "How does BS 8110-1 generally control deflection due to vertical loading without direct calculation?",
+    "answer": "By using the span/effective depth ratios given in Section 3 for reinforced concrete, unless specific attention is required to limit deflection to particular values."
+  },
+  {
+    "id": 15,
+    "type": "Crack control",
+    "clause": "2.2.3.4.1",
+    "question": "How is cracking in reinforced concrete normally controlled per BS 8110-1?",
+    "answer": "By adherence to the detailing rules given in 3.12.11 (spacing of reinforcement)."
+  },
+  {
+    "id": 16,
+    "type": "Durability",
+    "clause": "2.2.4",
+    "question": "What does BS 8110-1 say is required to produce a durable structure?",
+    "answer": "Integration of all aspects of design, materials and construction, with the environmental exposure conditions defined at the design stage and adequate cover to steel provided."
+  },
+  {
+    "id": 17,
+    "type": "Conceptual",
+    "clause": "2.2.5",
+    "question": "When may fatigue need to be considered in design per BS 8110-1?",
+    "answer": "When the imposed load on a structure is predominantly cyclical."
+  },
+  {
+    "id": 18,
+    "type": "Design principles",
+    "clause": "2.3",
+    "question": "What is the purpose of inspection of construction per 2.3?",
+    "answer": "To ensure that construction is in accordance with the design, via an inspection procedure covering materials, records, workmanship and construction."
+  },
+  {
+    "id": 19,
+    "type": "Definition",
+    "clause": "2.4.1.1",
+    "question": "What are the three characteristic loads defined in 2.4.1.1?",
+    "answer": "Characteristic dead load Gk, characteristic imposed load Qk, and characteristic wind load Wk."
+  },
+  {
+    "id": 20,
+    "type": "Design principles",
+    "clause": "2.4.1.3",
+    "question": "What is the purpose of the partial safety factor for load, γf?",
+    "answer": "It accounts for unconsidered increases in load, inaccurate load-effect assessment, unforeseen stress redistribution, dimensional inaccuracy, and the importance of the limit state considered."
+  },
+  {
+    "id": 21,
+    "type": "Ultimate Limit State",
+    "clause": "Table 2.1",
+    "question": "For load combination 1 (dead and imposed load) in Table 2.1, what are the adverse partial load factors?",
+    "answer": "1.4 for dead load (Gk) and 1.6 for imposed load (Qk)."
+  },
+  {
+    "id": 22,
+    "type": "Ultimate Limit State",
+    "clause": "Table 2.1",
+    "question": "For load combination 2 (dead and wind load) in Table 2.1, what are the partial load factors?",
+    "answer": "1.4Gk (adverse) or 1.0Gk (beneficial) for dead load, and 1.4 for wind load (Wk)."
+  },
+  {
+    "id": 23,
+    "type": "Ultimate Limit State",
+    "clause": "Table 2.1",
+    "question": "For load combination 3 (dead, imposed and wind load) in Table 2.1, what are the partial load factors?",
+    "answer": "1.2 applied to each of dead load, imposed load and wind load."
+  },
+  {
+    "id": 24,
+    "type": "Interpretation of code requirements",
+    "clause": "2.4.3.1.1",
+    "question": "How does BS 8110-1 distinguish 'adverse' and 'beneficial' partial factors in Table 2.1?",
+    "answer": "The adverse factor is applied to loads that tend to produce a more critical design condition; the beneficial factor is applied to loads that tend to produce a less critical design condition at the section considered."
+  },
+  {
+    "id": 25,
+    "type": "Material properties",
+    "clause": "2.4.2.1",
+    "question": "How is 'characteristic strength' defined in BS 8110-1?",
+    "answer": "The value of cube strength of concrete (fcu), yield/proof strength of reinforcement (fy), or ultimate strength of prestressing tendon (fpu) below which 5% of all possible test results would be expected to fall."
+  },
+  {
+    "id": 26,
+    "type": "Design principles",
+    "clause": "2.4.2.2",
+    "question": "What does the partial safety factor for material strength, γm, account for?",
+    "answer": "Differences between actual and laboratory values, local weaknesses, inaccuracies in assessment of section resistance, and the importance of the limit state considered."
+  },
+  {
+    "id": 27,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 2.2",
+    "question": "What value of γm is used for reinforcement (including prestressing steel) at the ULS?",
+    "answer": "1.15."
+  },
+  {
+    "id": 28,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 2.2",
+    "question": "What value of γm is used for concrete in flexure or axial load at the ULS?",
+    "answer": "1.50."
+  },
+  {
+    "id": 29,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 2.2",
+    "question": "What value of γm is used for shear strength without shear reinforcement at the ULS?",
+    "answer": "1.25."
+  },
+  {
+    "id": 30,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 2.2",
+    "question": "What value of γm is used for bond strength at the ULS?",
+    "answer": "1.4."
+  },
+  {
+    "id": 31,
+    "type": "Material properties",
+    "clause": "2.4.2.4",
+    "question": "What value of Poisson's ratio may be assumed for concrete in linear elastic analysis?",
+    "answer": "0.2."
+  },
+  {
+    "id": 32,
+    "type": "Serviceability",
+    "clause": "2.5.4",
+    "question": "What elastic modulus for steel is assumed in serviceability limit state section analysis?",
+    "answer": "200 kN/mm²."
+  },
+  {
+    "id": 33,
+    "type": "Design principles",
+    "clause": "2.5.2",
+    "question": "What modular ratio may be assumed for the gross or transformed concrete section in the absence of better information?",
+    "answer": "15."
+  },
+  {
+    "id": 34,
+    "type": "Interpretation of code requirements",
+    "clause": "2.5.2",
+    "question": "What three bases may relative member stiffness be assessed on in linear elastic analysis per 2.5.2?",
+    "answer": "The concrete section (ignoring reinforcement); the gross section (including reinforcement via modular ratio); or the transformed section (compression area combined with reinforcement via modular ratio)."
+  },
+  {
+    "id": 35,
+    "type": "Design principles",
+    "clause": "3.1.2",
+    "question": "What is the basis of design for reinforced concrete assumed in 3.1.2?",
+    "answer": "The ULS is assumed to be the critical limit state; the SLS of deflection and cracking will not normally be reached if the recommended span/effective depth ratios and reinforcement spacing rules are followed."
+  },
+  {
+    "id": 36,
+    "type": "Ultimate Limit State",
+    "clause": "3.1.4.2",
+    "question": "What is the notional horizontal design ultimate load that all buildings should be able to resist?",
+    "answer": "1.5% of the characteristic dead weight of the structure between mid-height of the storey below and mid-height of the storey above (or the roof surface), applied at each floor or roof level simultaneously."
+  },
+  {
+    "id": 37,
+    "type": "Detailing requirements",
+    "clause": "3.1.4.3",
+    "question": "Where should horizontal and vertical ties be provided per 3.1.4.3?",
+    "answer": "In structures where all load-bearing elements are concrete, in accordance with 3.12.3."
+  },
+  {
+    "id": 38,
+    "type": "Definition",
+    "clause": "3.1.5.1",
+    "question": "What is a 'durable concrete element' according to 3.1.5.1?",
+    "answer": "One that is designed and constructed to protect embedded metal from corrosion and to perform satisfactorily in the working environment for the lifetime of the structure."
+  },
+  {
+    "id": 39,
+    "type": "Material properties",
+    "clause": "3.1.7.2",
+    "question": "What is the minimum concrete strength class for reinforced concrete made with normal-weight aggregate?",
+    "answer": "C20/25."
+  },
+  {
+    "id": 40,
+    "type": "Material properties",
+    "clause": "3.1.7.2",
+    "question": "What is the minimum concrete strength class for reinforced concrete made with lightweight aggregate?",
+    "answer": "LC16/18."
+  },
+  {
+    "id": 41,
+    "type": "Material properties",
+    "clause": "3.1.7.3",
+    "question": "What age is used as the basis for concrete design strength?",
+    "answer": "The 28-day characteristic strength, unless there is evidence to justify a higher strength for a particular structure."
+  },
+  {
+    "id": 42,
+    "type": "Material properties",
+    "clause": "Table 3.1",
+    "question": "What is the characteristic strength fy of hot rolled mild steel per Table 3.1?",
+    "answer": "250 N/mm²."
+  },
+  {
+    "id": 43,
+    "type": "Material properties",
+    "clause": "Table 3.1",
+    "question": "What is the characteristic strength fy of high yield steel (hot rolled or cold worked) per Table 3.1?",
+    "answer": "500 N/mm²."
+  },
+  {
+    "id": 44,
+    "type": "Design principles",
+    "clause": "3.2.1.2.2",
+    "question": "What is the first critical vertical loading arrangement to consider for a frame per 3.2.1.2.2?",
+    "answer": "All spans loaded with the maximum design ultimate load, 1.4Gk + 1.6Qk."
+  },
+  {
+    "id": 45,
+    "type": "Design principles",
+    "clause": "3.2.1.2.2",
+    "question": "What is the second critical vertical loading arrangement to consider for a frame per 3.2.1.2.2?",
+    "answer": "Alternate spans loaded with the maximum design ultimate load (1.4Gk + 1.6Qk) and all other spans loaded with the minimum design ultimate load (1.0Gk)."
+  },
+  {
+    "id": 46,
+    "type": "Interpretation of code requirements",
+    "clause": "3.2.1.2.1",
+    "question": "In sub-frame analysis of a monolithic frame, what end condition is assumed for columns remote from the beams?",
+    "answer": "Generally fixed, unless the assumption of a pinned end is clearly more reasonable (e.g. where a foundation detail cannot develop moment restraint)."
+  },
+  {
+    "id": 47,
+    "type": "Design principles",
+    "clause": "3.2.1.2.4",
+    "question": "Describe the 'continuous beam' simplification for analysis per 3.2.1.2.4.",
+    "answer": "As a conservative alternative, the beams at one level may be analysed as a continuous beam over supports providing no restraint to rotation, using the critical loading arrangements of 3.2.1.2.2."
+  },
+  {
+    "id": 48,
+    "type": "Interpretation of code requirements",
+    "clause": "3.2.2.1",
+    "question": "What is Condition 1 for permitting moment redistribution?",
+    "answer": "Equilibrium between internal and external forces must be maintained under all appropriate combinations of design ultimate load."
+  },
+  {
+    "id": 49,
+    "type": "Interpretation of code requirements",
+    "clause": "3.2.2.1",
+    "question": "What is Condition 2 for permitting moment redistribution, and what does it limit?",
+    "answer": "At sections where the resistance moment is reduced, the neutral axis depth x must not exceed (βb − 0.4)d, where d is effective depth and βb is the ratio of moment after redistribution to moment before redistribution."
+  },
+  {
+    "id": 50,
+    "type": "Interpretation of code requirements",
+    "clause": "3.2.2.1",
+    "question": "What is Condition 3 for permitting moment redistribution?",
+    "answer": "The resistance moment at any section should be at least 70% of the moment at that section from the elastic maximum moments diagram covering all appropriate load combinations."
+  },
+  {
+    "id": 51,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.2.2.2",
+    "question": "What redistribution limit applies to structures over four storeys where the frame provides lateral stability?",
+    "answer": "Redistribution is limited to 10%, and Condition 3 becomes 90% instead of 70%."
+  },
+  {
+    "id": 52,
+    "type": "Definition",
+    "clause": "3.3.1.1",
+    "question": "What is 'nominal cover' as defined in 3.3.1.1?",
+    "answer": "The design depth of concrete cover to all steel reinforcement, including links; it is the dimension used in design and shown on drawings."
+  },
+  {
+    "id": 53,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.3.1.1",
+    "question": "What is the minimum acceptable actual cover relative to the nominal cover?",
+    "answer": "The actual cover to all reinforcement should never be less than the nominal cover minus 5 mm."
+  },
+  {
+    "id": 54,
+    "type": "Detailing requirements",
+    "clause": "3.3.1.2",
+    "question": "What rule governs nominal cover in relation to bar size?",
+    "answer": "The resulting cover to a main bar should not be less than the size of that bar (or, for bars in pairs/bundles, the size of a single bar of equivalent total cross-sectional area)."
+  },
+  {
+    "id": 55,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.3.1.3",
+    "question": "What is the typical nominal maximum aggregate size, and what governs its upper limit?",
+    "answer": "20 mm is suitable for most work; the nominal maximum aggregate size should not normally exceed one-quarter of the minimum thickness of the concrete section."
+  },
+  {
+    "id": 56,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.3.1.4",
+    "question": "What minimum nominal cover should generally be specified where concrete is cast directly against earth?",
+    "answer": "Not less than 75 mm."
+  },
+  {
+    "id": 57,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.3.1.4",
+    "question": "What minimum nominal cover should generally be specified where concrete is cast against an adequate blinding?",
+    "answer": "Not less than 50 mm (excluding the blinding)."
+  },
+  {
+    "id": 58,
+    "type": "Detailing requirements",
+    "clause": "Table 3.4",
+    "question": "What nominal cover is required for a simply-supported beam for 1 hour fire resistance per Table 3.4?",
+    "answer": "20 mm."
+  },
+  {
+    "id": 59,
+    "type": "Detailing requirements",
+    "clause": "Table 3.4",
+    "question": "What nominal cover is required for a simply-supported beam for 4 hours fire resistance per Table 3.4?",
+    "answer": "70 mm."
+  },
+  {
+    "id": 60,
+    "type": "Detailing requirements",
+    "clause": "3.3.6",
+    "question": "What does Table 3.4 and Figure 3.2 ensure regarding cover?",
+    "answer": "That fire resistance requirements are satisfied; cover for corrosion protection may not by itself suffice as fire protection."
+  },
+  {
+    "id": 61,
+    "type": "Definition",
+    "clause": "3.3.4",
+    "question": "What governs the required cover against corrosion per 3.3.3?",
+    "answer": "The exposure conditions in service and the quality of the concrete as placed and cured immediately around the reinforcement."
+  },
+  {
+    "id": 62,
+    "type": "Definition",
+    "clause": "3.4.1.1",
+    "question": "How does BS 8110-1 define a 'deep beam' for the purposes of excluding it from normal beam design rules?",
+    "answer": "A beam of clear span less than twice the effective depth; deep beams are not covered by 3.4 and require specialist literature."
+  },
+  {
+    "id": 63,
+    "type": "Design principles",
+    "clause": "3.4.1.2",
+    "question": "How is the effective span of a simply-supported beam determined?",
+    "answer": "The smaller of the distance between centres of bearings, or the clear distance between supports plus the effective depth."
+  },
+  {
+    "id": 64,
+    "type": "Design principles",
+    "clause": "3.4.1.3",
+    "question": "How is the effective span of a continuous member determined?",
+    "answer": "The distance between centres of supports, with the centre of action at an encastré end taken at half the effective depth from the face of the support."
+  },
+  {
+    "id": 65,
+    "type": "Design principles",
+    "clause": "3.4.1.4",
+    "question": "How is the effective length of a cantilever determined?",
+    "answer": "Its length to the face of the support plus half its effective depth, except where it forms the end of a continuous beam, in which case the length to the centre of the support is used."
+  },
+  {
+    "id": 66,
+    "type": "Formula-based",
+    "clause": "3.4.1.5",
+    "question": "What is the effective flange width of a T-beam in the absence of more accurate determination?",
+    "answer": "Web width + lz/5, or the actual flange width if less, where lz is the distance between points of zero moment."
+  },
+  {
+    "id": 67,
+    "type": "Formula-based",
+    "clause": "3.4.1.5",
+    "question": "What is the effective flange width of an L-beam in the absence of more accurate determination?",
+    "answer": "Web width + lz/10, or the actual flange width if less, where lz is the distance between points of zero moment."
+  },
+  {
+    "id": 68,
+    "type": "Detailing requirements",
+    "clause": "3.4.1.6",
+    "question": "What is the maximum clear distance between lateral restraints for a simply-supported or continuous beam?",
+    "answer": "The lesser of 60bc or 250bc²/d, where bc is the breadth of the compression face and d is the effective depth."
+  },
+  {
+    "id": 69,
+    "type": "Detailing requirements",
+    "clause": "3.4.1.6",
+    "question": "What is the maximum clear distance between lateral restraints for a cantilever restrained only at the support?",
+    "answer": "The lesser of 25bc or 100bc²/d."
+  },
+  {
+    "id": 70,
+    "type": "Interpretation of code requirements",
+    "clause": "3.4.3",
+    "question": "What conditions must be satisfied to use Table 3.5 for uniformly-loaded continuous beams?",
+    "answer": "Characteristic imposed load Qk must not exceed characteristic dead load Gk; loads must be substantially uniformly distributed over three or more spans; and span length variation must not exceed 15% of the longest span."
+  },
+  {
+    "id": 71,
+    "type": "Formula-based",
+    "clause": "Table 3.5",
+    "question": "Per Table 3.5, what is the design ultimate bending moment at the outer support of a uniformly-loaded continuous beam?",
+    "answer": "Zero."
+  },
+  {
+    "id": 72,
+    "type": "Formula-based",
+    "clause": "Table 3.5",
+    "question": "Per Table 3.5, what is the design ultimate bending moment near the middle of the end span?",
+    "answer": "0.09Fl, where F is the total design ultimate load and l is the effective span."
+  },
+  {
+    "id": 73,
+    "type": "Formula-based",
+    "clause": "Table 3.5",
+    "question": "Per Table 3.5, what is the design ultimate bending moment at the first interior support?",
+    "answer": "−0.11Fl."
+  },
+  {
+    "id": 74,
+    "type": "Formula-based",
+    "clause": "Table 3.5",
+    "question": "Per Table 3.5, what is the design ultimate bending moment at the middle of interior spans?",
+    "answer": "0.07Fl."
+  },
+  {
+    "id": 75,
+    "type": "Formula-based",
+    "clause": "Table 3.5",
+    "question": "Per Table 3.5, what is the design ultimate bending moment at interior supports?",
+    "answer": "−0.08Fl."
+  },
+  {
+    "id": 76,
+    "type": "Formula-based",
+    "clause": "Table 3.5",
+    "question": "Per Table 3.5, what is the design ultimate shear at the outer support?",
+    "answer": "0.45F."
+  },
+  {
+    "id": 77,
+    "type": "Interpretation of code requirements",
+    "clause": "3.4.3",
+    "question": "May the moments calculated from Table 3.5 be redistributed?",
+    "answer": "No — no redistribution of the moments calculated from Table 3.5 should be made."
+  },
+  {
+    "id": 78,
+    "type": "Flexure",
+    "clause": "3.4.4.1",
+    "question": "What assumption about strain distribution is made when analysing a beam cross-section for ultimate moment of resistance?",
+    "answer": "Plane sections remain plane, so strain in the concrete and in the reinforcement (tension or compression) is derived from this assumption."
+  },
+  {
+    "id": 79,
+    "type": "Flexure",
+    "clause": "3.4.4.1",
+    "question": "What assumption is made regarding the tensile strength of concrete in flexural design?",
+    "answer": "The tensile strength of the concrete is ignored."
+  },
+  {
+    "id": 80,
+    "type": "Flexure",
+    "clause": "3.4.4.1",
+    "question": "What is the maximum lever arm assumed when a section is designed to resist only flexure?",
+    "answer": "The lever arm should not be assumed greater than 0.95 times the effective depth (0.95d)."
+  },
+  {
+    "id": 81,
+    "type": "Flexure",
+    "clause": "3.4.4.1",
+    "question": "What γm values apply to concrete and reinforcement stress-strain curves in flexural section analysis?",
+    "answer": "γm = 1.5 for concrete (Figure 2.1) and γm = 1.15 for reinforcement (Figure 2.2)."
+  },
+  {
+    "id": 82,
+    "type": "Ultimate Limit State",
+    "clause": "3.4.4.1",
+    "question": "When may the effect of axial thrust on a beam section be ignored in flexural design?",
+    "answer": "If the design ultimate axial force does not exceed 0.1fcu times the cross-sectional area."
+  },
+  {
+    "id": 83,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the value of K' where moment redistribution does not exceed 10%?",
+    "answer": "K' = 0.156 (implying a neutral axis depth limited to d/2)."
+  },
+  {
+    "id": 84,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the formula for K' where redistribution exceeds 10%?",
+    "answer": "K' = 0.402(βb − 0.4) − 0.18(βb − 0.4)²."
+  },
+  {
+    "id": 85,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the formula for K used in rectangular beam flexural design?",
+    "answer": "K = M/(bd²fcu)."
+  },
+  {
+    "id": 86,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the lever arm formula when K ≤ K' (no compression reinforcement required)?",
+    "answer": "z = d{0.5 + √(0.25 − K/0.9)}, but not greater than 0.95d."
+  },
+  {
+    "id": 87,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the neutral axis depth formula once z has been found?",
+    "answer": "x = (d − z)/0.45."
+  },
+  {
+    "id": 88,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the tension reinforcement area formula when K ≤ K'?",
+    "answer": "As = M/(0.87fy z)."
+  },
+  {
+    "id": 89,
+    "type": "Interpretation of code requirements",
+    "clause": "3.4.4.4",
+    "question": "Under what condition is compression reinforcement required in a rectangular beam?",
+    "answer": "When K > K'."
+  },
+  {
+    "id": 90,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the compression reinforcement area formula when K > K'?",
+    "answer": "As' = (K − K')fcubd²/[0.87fy(d − d')]."
+  },
+  {
+    "id": 91,
+    "type": "Formula-based",
+    "clause": "3.4.4.4",
+    "question": "What is the tension reinforcement area formula when K > K' (compression reinforcement provided)?",
+    "answer": "As = K'fcubd²/(0.87fy z) + As'."
+  },
+  {
+    "id": 92,
+    "type": "Interpretation of code requirements",
+    "clause": "3.4.4.4",
+    "question": "What check is needed on the compression reinforcement stress if d'/x exceeds 0.37 (for fy = 500 N/mm²)?",
+    "answer": "The compression steel stress will be less than 0.87fy and should instead be obtained from the stress-strain curve, Figure 2.2."
+  },
+  {
+    "id": 93,
+    "type": "Flexure",
+    "clause": "3.4.4.2",
+    "question": "What may design charts based on Figure 2.1, Figure 2.2 and the 3.4.4.1 assumptions be used for?",
+    "answer": "Designing beams reinforced in tension only, or in tension and compression."
+  },
+  {
+    "id": 94,
+    "type": "Formula-based",
+    "clause": "3.4.4.5 equation 1",
+    "question": "What equation gives the tension steel area for a flanged beam where the neutral axis falls below the flange (moment < βffcubd², ≤10% redistribution)?",
+    "answer": "As = [M + 0.1fcubw d(0.45d − hf)] / [0.87fy(d − 0.5hf)]."
+  },
+  {
+    "id": 95,
+    "type": "Interpretation of code requirements",
+    "clause": "3.4.4.5",
+    "question": "What is the applicability limit of equation 1 for flanged beam flexural design?",
+    "answer": "Equation 1 is only applicable when hf < 0.45d."
+  },
+  {
+    "id": 96,
+    "type": "Interpretation of code requirements",
+    "clause": "Table 3.6",
+    "question": "What does Table 3.6 provide for flanged beam design?",
+    "answer": "Values of the factor βf, tabulated against b/bw and d/hf ratios, used when the design ultimate moment exceeds βffcubd²."
+  },
+  {
+    "id": 97,
+    "type": "Shear",
+    "clause": "3.4.5.2 equation 3",
+    "question": "What is the formula for design shear stress v at a beam cross-section?",
+    "answer": "v = V/(bv d), where V is the design shear force, bv the section breadth, and d the effective depth."
+  },
+  {
+    "id": 98,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.4.5.2",
+    "question": "What is the absolute upper limit on design shear stress v in a beam, regardless of shear reinforcement provided?",
+    "answer": "v should not exceed 0.8√fcu or 5 N/mm², whichever is the lesser (this limit includes an allowance for γm of 1.25)."
+  },
+  {
+    "id": 99,
+    "type": "Shear",
+    "clause": "Table 3.7",
+    "question": "What shear reinforcement is required when v is less than 0.5vc throughout the beam?",
+    "answer": "None is strictly required, though minimum links should generally be provided in beams of structural importance (they may be omitted in minor members such as lintels)."
+  },
+  {
+    "id": 100,
+    "type": "Shear",
+    "clause": "Table 3.7",
+    "question": "What shear reinforcement is required when 0.5vc < v < (vc + 0.4)?",
+    "answer": "Minimum links for the whole length of the beam, with area Asv ≥ 0.4bv sv/0.87fyv."
+  },
+  {
+    "id": 101,
+    "type": "Shear",
+    "clause": "Table 3.7",
+    "question": "What is the design shear resistance provided by minimum links per Note 2 of Table 3.7?",
+    "answer": "0.4 N/mm²."
+  },
+  {
+    "id": 102,
+    "type": "Shear",
+    "clause": "Table 3.7",
+    "question": "What proportion of the steel's shear resistance may be provided by bent-up bars when (vc + 0.4) < v < 0.8√fcu (or 5 N/mm²)?",
+    "answer": "Not more than 50% of the shear resistance provided by the steel may be in the form of bent-up bars; the rest must be links."
+  },
+  {
+    "id": 103,
+    "type": "Detailing requirements",
+    "clause": "3.4.5.5",
+    "question": "What is the maximum spacing of links in the direction of the span?",
+    "answer": "0.75d."
+  },
+  {
+    "id": 104,
+    "type": "Detailing requirements",
+    "clause": "3.4.5.5",
+    "question": "What is the maximum horizontal spacing rule for links at right angles to the span?",
+    "answer": "No longitudinal tension bar should be more than 150 mm from a vertical leg, and spacing should in any case not exceed d."
+  },
+  {
+    "id": 105,
+    "type": "Shear",
+    "clause": "Table 3.8 Note 2",
+    "question": "What is the general form of the expression from which the design concrete shear stress vc is derived?",
+    "answer": "vc = 0.79{100As/(bvd)}^(1/3) (400/d)^(1/4) / γm, with 100As/(bvd) capped at 3 and (400/d)^(1/4) not taken less than 0.67 (or 1.0 for members with shear reinforcement providing ≥0.4 N/mm² resistance)."
+  },
+  {
+    "id": 106,
+    "type": "Shear",
+    "clause": "Table 3.8",
+    "question": "How should vc be modified for concrete strengths above 25 N/mm², and what is the cap on fcu used?",
+    "answer": "Multiply the table values by (fcu/25)^(1/3); fcu should not be taken as greater than 40 in this modification."
+  },
+  {
+    "id": 107,
+    "type": "Formula-based",
+    "clause": "3.4.5.6 equation 4",
+    "question": "What equation gives the shear resistance Vb of a system of bent-up bars?",
+    "answer": "Vb = Asb(0.87fyv)(cos α + sin α cot β), where α is the angle between the bent-up bar and the beam axis and β is the angle of the compression strut."
+  },
+  {
+    "id": 108,
+    "type": "Detailing requirements",
+    "clause": "3.4.5.6",
+    "question": "What geometric limits apply to a bent-up bar truss system per 3.4.5.6?",
+    "answer": "Both α and β should be at least 45°, giving a maximum bent-up bar spacing sb of 1.5d, and at least 50% of the steel shear resistance should be in the form of links."
+  },
+  {
+    "id": 109,
+    "type": "Shear",
+    "clause": "3.4.5.8",
+    "question": "What is the enhancement to design concrete shear stress vc for sections near a support?",
+    "answer": "vc may be increased to 2dvc/av, provided v at the face of the support remains less than the lesser of 0.8√fcu or 5 N/mm²."
+  },
+  {
+    "id": 110,
+    "type": "Interpretation of code requirements",
+    "clause": "3.4.5.8",
+    "question": "Over what range of av (distance from support) may the enhanced shear strength near supports be used?",
+    "answer": "Where the section considered is closer to the face of a support or concentrated load than twice the effective depth, d (i.e. av < 2d)."
+  },
+  {
+    "id": 111,
+    "type": "Formula-based",
+    "clause": "3.4.5.9 equation 5",
+    "question": "What equation gives the required shear reinforcement area for sections close to supports (enhanced shear)?",
+    "answer": "ΣAsv = av bv(v − 2dvc/av)/0.87fyv ≥ 0.4bv av/0.87fyv, provided within the middle three-quarters of av."
+  },
+  {
+    "id": 112,
+    "type": "Shear",
+    "clause": "3.4.5.10",
+    "question": "What is the simplified approach for checking shear near supports under generally uniform loading?",
+    "answer": "The shear stress may be checked at a section a distance d from the face of the support; if adequate reinforcement is provided there, no further shear check is required closer to the support."
+  },
+  {
+    "id": 113,
+    "type": "Formula-based",
+    "clause": "3.4.5.12 equation 6a",
+    "question": "What equation gives the enhanced design concrete shear capacity vc' for a section under shear and axial compression?",
+    "answer": "vc' = vc + 0.6 N Vh/(M Ac), with Vh/M not taken greater than 1 (vc from Table 3.8, unmodified by 3.4.5.8)."
+  },
+  {
+    "id": 114,
+    "type": "Interpretation of code requirements",
+    "clause": "3.4.5.12",
+    "question": "What is the limiting design shear stress vc'' used to avoid shear cracking prior to the ULS under axial load, per equation 6b?",
+    "answer": "vc'' = 0.83vc √{1 + N/(Ac vc)}."
+  },
+  {
+    "id": 115,
+    "type": "Torsion",
+    "clause": "3.4.5.13",
+    "question": "When is explicit torsion design necessary for beams in normal slab-and-beam or framed construction?",
+    "answer": "Only when the design specifically relies on the torsional resistance of the member; otherwise, torsional cracking is normally adequately controlled by shear reinforcement."
+  },
+  {
+    "id": 116,
+    "type": "Material properties",
+    "clause": "3.4.5.1",
+    "question": "What is the maximum characteristic strength fyv permitted for shear link design?",
+    "answer": "Not to be taken as more than 500 N/mm²."
+  },
+  {
+    "id": 117,
+    "type": "Deflection",
+    "clause": "3.4.6.3",
+    "question": "What total deflection limit are the basic span/effective depth ratios in Table 3.9 based on?",
+    "answer": "Span/250."
+  },
+  {
+    "id": 118,
+    "type": "Deflection",
+    "clause": "3.4.6.3",
+    "question": "What additional deflection limit (after construction of finishes/partitions) does Table 3.9 aim to satisfy, for spans up to 10 m?",
+    "answer": "Span/500 or 20 mm, whichever is the lesser."
+  },
+  {
+    "id": 119,
+    "type": "Deflection",
+    "clause": "Table 3.9",
+    "question": "What is the basic span/effective depth ratio for a simply-supported rectangular beam?",
+    "answer": "20."
+  },
+  {
+    "id": 120,
+    "type": "Deflection",
+    "clause": "Table 3.9",
+    "question": "What is the basic span/effective depth ratio for a continuous rectangular beam?",
+    "answer": "26."
+  },
+  {
+    "id": 121,
+    "type": "Deflection",
+    "clause": "Table 3.9",
+    "question": "What is the basic span/effective depth ratio for a cantilever rectangular beam?",
+    "answer": "7."
+  },
+  {
+    "id": 122,
+    "type": "Deflection",
+    "clause": "3.4.6.4",
+    "question": "How should the span/effective depth ratio from Table 3.9 be modified for spans exceeding 10 m (where deflection after finishes must be limited)?",
+    "answer": "Multiply the Table 3.9 values by 10/span, except for cantilevers, which should be justified by calculation."
+  },
+  {
+    "id": 123,
+    "type": "Formula-based",
+    "clause": "Table 3.10 equation 7",
+    "question": "What equation gives the modification factor for tension reinforcement used to adjust span/depth ratios?",
+    "answer": "Modification factor = 0.55 + (477 − fs)/[120(0.9 + M/bd²)] ≤ 2.0, where fs is the service stress and M is the design ultimate moment at mid-span (or support, for a cantilever)."
+  },
+  {
+    "id": 124,
+    "type": "Formula-based",
+    "clause": "Table 3.10 equation 8 (Note 2)",
+    "question": "What equation estimates the service stress fs in tension reinforcement?",
+    "answer": "fs = (2 fy As,req)/(3 As,prov × βb), where As,req is the area required and As,prov the area provided."
+  },
+  {
+    "id": 125,
+    "type": "Interpretation of code requirements",
+    "clause": "Table 3.10 Note 3",
+    "question": "How is fs estimated for a continuous beam if the redistribution percentage is unknown but the mid-span moment is at least the elastic ultimate moment?",
+    "answer": "fs may be taken as 2/3 fy."
+  },
+  {
+    "id": 126,
+    "type": "Formula-based",
+    "clause": "Table 3.11 equation 9",
+    "question": "What equation gives the modification factor for compression reinforcement?",
+    "answer": "Modification factor = 1 + [(100As'/bd)/(3 + 100As'/bd)] ≤ 1.5."
+  },
+  {
+    "id": 127,
+    "type": "Interpretation of code requirements",
+    "clause": "Table 3.11 Note 2",
+    "question": "Which compression bars may be included in As' when applying the Table 3.11 modification factor?",
+    "answer": "All bars in the compression zone, even those not effectively tied with links."
+  },
+  {
+    "id": 128,
+    "type": "Deflection",
+    "clause": "3.4.6.7",
+    "question": "Under what circumstances should the permissible span/effective depth ratio be reduced for creep and shrinkage, and by how much at most?",
+    "answer": "If free shrinkage strain is expected to exceed 0.00075 or the creep coefficient exceeds 8 (or other abnormally adverse conditions apply); a reduction of more than 15% is unlikely to be required."
+  },
+  {
+    "id": 129,
+    "type": "Crack control",
+    "clause": "3.4.7",
+    "question": "How is flexural cracking in beams controlled per 3.4.7?",
+    "answer": "By use of the rules in 3.12.11.2 governing maximum spacing between bars in tension; if wider spacings are needed, crack widths should be checked by calculation."
+  },
+  {
+    "id": 130,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 3.25",
+    "question": "What is the minimum percentage of tension reinforcement (100As/Ac) in a rectangular beam section, for fy = 250 and fy = 500?",
+    "answer": "0.24% for fy = 250 N/mm²; 0.13% for fy = 500 N/mm²."
+  },
+  {
+    "id": 131,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 3.25",
+    "question": "What is the minimum percentage of tension reinforcement for a T-beam with flange in tension (100As/bwh)?",
+    "answer": "0.48% for fy = 250 N/mm²; 0.26% for fy = 500 N/mm²."
+  },
+  {
+    "id": 132,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 3.25",
+    "question": "What is the minimum percentage of tension reinforcement for an L-beam with flange in tension (100As/bwh)?",
+    "answer": "0.36% for fy = 250 N/mm²; 0.20% for fy = 500 N/mm²."
+  },
+  {
+    "id": 133,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 3.25",
+    "question": "What is the minimum tension reinforcement percentage for a flanged beam with web in tension where bw/b < 0.4?",
+    "answer": "0.32% for fy = 250 N/mm²; 0.18% for fy = 500 N/mm² (based on 100As/bwh)."
+  },
+  {
+    "id": 134,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 3.25",
+    "question": "What is the minimum tension reinforcement percentage for a flanged beam with web in tension where bw/b ≥ 0.4?",
+    "answer": "0.24% for fy = 250 N/mm²; 0.13% for fy = 500 N/mm² (based on 100As/bwh)."
+  },
+  {
+    "id": 135,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 3.25",
+    "question": "What is the general minimum percentage of compression reinforcement (100Asc/Acc) where required for the ULS?",
+    "answer": "0.4%, for both fy = 250 and fy = 500 N/mm²."
+  },
+  {
+    "id": 136,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.12.6.1",
+    "question": "What is the maximum permitted area of tension or compression reinforcement in a beam?",
+    "answer": "Neither should exceed 4% of the cross-sectional area of the concrete."
+  },
+  {
+    "id": 137,
+    "type": "Detailing requirements",
+    "clause": "3.12.5.4",
+    "question": "What is the minimum bar size in side faces of beams needed to control cracking?",
+    "answer": "√(sb·b/fy), where sb is the bar spacing and b the section breadth at the point considered — or as required by 500 mm if b exceeds 500 mm."
+  },
+  {
+    "id": 138,
+    "type": "Detailing requirements",
+    "clause": "3.12.7.1",
+    "question": "What size and spacing of links are required for containment of compression reinforcement in a beam?",
+    "answer": "Links at least one-quarter the size of the largest compression bar, or 6 mm (whichever is greater), at a maximum spacing of 12 times the size of the smallest compression bar."
+  },
+  {
+    "id": 139,
+    "type": "Detailing requirements",
+    "clause": "3.12.7.2",
+    "question": "What angle and spacing rules apply to links restraining compression bars per 3.12.7.2?",
+    "answer": "Every corner bar and each alternate bar should be restrained by a link with an included angle not exceeding 135°, and no compression bar should be more than 150 mm from a restrained bar."
+  },
+  {
+    "id": 140,
+    "type": "Formula-based",
+    "clause": "3.12.8.3 equation 48",
+    "question": "What is the equation defining design anchorage bond stress fbu?",
+    "answer": "fbu = Fbt/(πΦl), where Fbt is the force in the bar, Φ the effective bar size, and l the anchorage length."
+  },
+  {
+    "id": 141,
+    "type": "Formula-based",
+    "clause": "3.12.8.4 equation 49",
+    "question": "What is the equation for design ultimate anchorage bond stress?",
+    "answer": "fbu = β√fcu, where β is a coefficient depending on bar type (from Table 3.26)."
+  },
+  {
+    "id": 142,
+    "type": "Material properties",
+    "clause": "Table 3.26",
+    "question": "What is the bond coefficient β for plain bars in tension?",
+    "answer": "0.28."
+  },
+  {
+    "id": 143,
+    "type": "Material properties",
+    "clause": "Table 3.26",
+    "question": "What is the bond coefficient β for Type 2 deformed bars in tension?",
+    "answer": "0.50."
+  },
+  {
+    "id": 144,
+    "type": "Material properties",
+    "clause": "Table 3.26",
+    "question": "What is the bond coefficient β for Type 1 deformed bars in tension?",
+    "answer": "0.40."
+  },
+  {
+    "id": 145,
+    "type": "Interpretation of code requirements",
+    "clause": "3.12.8.4",
+    "question": "What bond coefficient should be used in beams where minimum links per Table 3.7 have not been provided?",
+    "answer": "The value appropriate to plain bars should be used, irrespective of the actual bar type (this exception does not apply to slabs)."
+  },
+  {
+    "id": 146,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.12.8.11",
+    "question": "What is the minimum lap length for bar reinforcement?",
+    "answer": "Not less than 15 times the bar size or 300 mm, whichever is greater (250 mm minimum for fabric)."
+  },
+  {
+    "id": 147,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.12",
+    "question": "When must transverse links be provided along a lap length in a beam or column?",
+    "answer": "Where both bars at the lap exceed size 20 and the cover is less than 1.5 times the size of the smaller bar; links should be at least one-quarter the smaller bar size and spaced at not more than 200 mm."
+  },
+  {
+    "id": 148,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.13",
+    "question": "By what factor should the tension lap length be increased if a lap occurs at the top of a section with cover less than twice the bar size?",
+    "answer": "By a factor of 1.4."
+  },
+  {
+    "id": 149,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.13",
+    "question": "By what factor should tension lap length be increased if both the top-of-section and corner conditions of 3.12.8.13 apply simultaneously?",
+    "answer": "By a factor of 2.0."
+  },
+  {
+    "id": 150,
+    "type": "Minimum/Maximum limits",
+    "clause": "3.12.8.14",
+    "question": "What is the maximum proportion of reinforcement permitted in a single layer at a tension lap?",
+    "answer": "The sum of the reinforcement sizes in a layer should not exceed 40% of the breadth of the section at that level."
+  },
+  {
+    "id": 151,
+    "type": "Design principles",
+    "clause": "3.12.8.15",
+    "question": "How is the required compression lap length related to the compression anchorage length?",
+    "answer": "It should be at least 25% greater than the compression anchorage length necessary to develop the required stress."
+  },
+  {
+    "id": 152,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.23",
+    "question": "What is the effective anchorage length of a 180° hook?",
+    "answer": "The greater of eight times the internal radius of the hook (maximum 24 times the bar size), or the actual length of bar in the hook including the straight portion."
+  },
+  {
+    "id": 153,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.23",
+    "question": "What is the effective anchorage length of a 90° bend?",
+    "answer": "The greater of four times the internal radius of the bend (maximum 12 times the bar size), or the actual bar length."
+  },
+  {
+    "id": 154,
+    "type": "Detailing requirements",
+    "clause": "3.12.9.1",
+    "question": "Beyond the theoretical cut-off point, how far must every bar in a flexural member extend, as a minimum?",
+    "answer": "At least the greater of the effective depth of the member or twelve times the bar size."
+  },
+  {
+    "id": 155,
+    "type": "Detailing requirements",
+    "clause": "3.12.9.4",
+    "question": "What are the two main options for anchoring a tension bar at a simply-supported end of a member?",
+    "answer": "(a) An effective anchorage length of 12 times the bar size beyond the centre-line of the support (no bend/hook before the centre of support); or (b) 12 times the bar size plus d/2 from the face of the support (no bend/hook before d/2 from the face)."
+  },
+  {
+    "id": 156,
+    "type": "Interpretation of code requirements",
+    "clause": "3.12.10.2",
+    "question": "Under what conditions may the simplified curtailment rules of Figure 3.24 be used for beams?",
+    "answer": "The beams are designed for predominantly uniformly distributed loads, and (for continuous beams) the spans are approximately equal."
+  },
+  {
+    "id": 157,
+    "type": "Detailing requirements",
+    "clause": "3.12.11.1",
+    "question": "What is the minimum horizontal distance between bars per 3.12.11.1?",
+    "answer": "hagg + 5 mm, where hagg is the maximum size of coarse aggregate."
+  },
+  {
+    "id": 158,
+    "type": "Detailing requirements",
+    "clause": "3.12.11.1",
+    "question": "What is the minimum vertical distance between rows of bars per 3.12.11.1?",
+    "answer": "Not less than 2hagg/3."
+  },
+  {
+    "id": 159,
+    "type": "Crack control",
+    "clause": "Table 3.28",
+    "question": "What is the maximum clear bar spacing near the tension face of a beam for fy = 500 N/mm² with 0% redistribution?",
+    "answer": "155 mm."
+  },
+  {
+    "id": 160,
+    "type": "Crack control",
+    "clause": "Table 3.28",
+    "question": "What is the maximum clear bar spacing near the tension face of a beam for fy = 250 N/mm² with 0% redistribution?",
+    "answer": "280 mm."
+  },
+  {
+    "id": 161,
+    "type": "Crack control",
+    "clause": "3.12.11.2.4",
+    "question": "What alternative expression may be used instead of Table 3.28 to assess clear bar spacing in tension?",
+    "answer": "Clear spacing ≤ 47000/fs ≤ 300 mm, where fs is the estimated service stress in the reinforcement (from equation 8)."
+  },
+  {
+    "id": 162,
+    "type": "Crack control",
+    "clause": "3.12.11.2.5",
+    "question": "What is the limiting distance between the face of a beam and the nearest longitudinal tension bar?",
+    "answer": "Not greater than half the clear distance given in Table 3.28 (or as derived from 3.12.11.2.4)."
+  },
+  {
+    "id": 163,
+    "type": "Crack control",
+    "clause": "3.12.11.2.6",
+    "question": "What spacing rule controls cracking from bars in the side faces of beams exceeding 750 mm overall depth?",
+    "answer": "Longitudinal bars should be distributed at a spacing not exceeding 250 mm, over two-thirds of the beam's overall depth measured from the tension face."
+  },
+  {
+    "id": 164,
+    "type": "Detailing requirements",
+    "clause": "3.12.4.1",
+    "question": "What is the maximum number of bars permitted in a bundle or group in contact?",
+    "answer": "Four bars; in no situation, even at laps, should more than four bars be arranged in contact."
+  },
+  {
+    "id": 165,
+    "type": "Detailing requirements",
+    "clause": "Table 3.24",
+    "question": "What is the bar schedule deduction for permissible deviations on links (and other bent bars) between concrete faces 0–1 m apart?",
+    "answer": "10 mm."
+  },
+  {
+    "id": 166,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.9",
+    "question": "How should lapped, welded or mechanically-jointed connections generally be positioned?",
+    "answer": "Away from points of high stress where possible, and preferably staggered."
+  },
+  {
+    "id": 167,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.18",
+    "question": "What percentage of design strength may a welded joint in tension be assumed to develop?",
+    "answer": "80% of the design strength of the joined bars (100% if welding is strictly supervised and not more than 20% of the tensile reinforcement at any cross-section is welded)."
+  },
+  {
+    "id": 168,
+    "type": "Detailing requirements",
+    "clause": "3.12.8.18",
+    "question": "What percentage of design strength may a welded joint in compression be assumed to develop?",
+    "answer": "100% of the design strength of the joined bars."
+  },
+  {
+    "id": 169,
+    "type": "Detailing requirements",
+    "clause": "3.12.1.4 / Table 3.24",
+    "question": "What deduction applies to straight bars of any length when determining bar schedule dimensions?",
+    "answer": "40 mm."
+  },
+  {
+    "id": 170,
+    "type": "Formula-based",
+    "clause": "3.12.8.25.2 equation 50",
+    "question": "What equation gives the design bearing stress inside a bend?",
+    "answer": "Bearing stress = 2Fbt / [rΦ(1 + 2Φ/ab)], where Fbt is the tensile force in the bar(s), r the internal radius of the bend, Φ the bar size, and ab the clear/centre spacing term perpendicular to the bend plane."
+  },
+  {
+    "id": 171,
+    "type": "Interpretation of code requirements",
+    "clause": "3.12.8.25.1",
+    "question": "When does the design bearing stress inside a bend not need to be checked?",
+    "answer": "Where the bar does not extend, or is not stressed, beyond a point four bar-diameters past the end of the bend at the ultimate limit state."
+  },
+  {
+    "id": 172,
+    "type": "Design principles",
+    "clause": "3.12.9.2",
+    "question": "What defines 'the point at which a bar is no longer required' for curtailment purposes?",
+    "answer": "The point where the design resistance moment of the section, considering only the continuing bars, equals the design moment."
+  },
+  {
+    "id": 173,
+    "type": "Design principles",
+    "clause": "3.12.9.3",
+    "question": "Why is it advisable to stagger curtailment points in heavily reinforced members?",
+    "answer": "Because curtailment of substantial reinforcement areas at a single section can lead to the development of large cracks at that point."
+  },
+  {
+    "id": 174,
+    "type": "Material properties",
+    "clause": "6.1",
+    "question": "What standard governs the selection and conformity of concrete per Section 6?",
+    "answer": "BS 8500-1, which also gives guidance on conformity, producer procedures and identity testing."
+  },
+  {
+    "id": 175,
+    "type": "Material properties",
+    "clause": "6.1",
+    "question": "Which standards govern the making and testing of concrete cubes for special purposes?",
+    "answer": "BS EN 12390-1, BS EN 12390-2 and BS EN 12390-3."
+  },
+  {
+    "id": 176,
+    "type": "Design principles",
+    "clause": "6.2.2",
+    "question": "What is the primary objective when placing and compacting concrete per 6.2.2?",
+    "answer": "A high degree of compaction without segregation, ensured by suitable workability and appropriate placing/compacting equipment and procedures."
+  },
+  {
+    "id": 177,
+    "type": "Detailing requirements",
+    "clause": "6.2.2",
+    "question": "Why should overworking the surface and adding water during finishing be avoided?",
+    "answer": "The resulting laitance has impaired strength and durability and is particularly vulnerable to freeze-thaw damage and de-icing salts."
+  },
+  {
+    "id": 178,
+    "type": "Definition",
+    "clause": "6.2.3.1",
+    "question": "What is 'curing' as defined in 6.2.3.1?",
+    "answer": "The process of preventing the loss of moisture from the concrete while maintaining a satisfactory temperature regime, preventing high internal temperature gradients."
+  },
+  {
+    "id": 179,
+    "type": "Serviceability",
+    "clause": "6.2.3.2",
+    "question": "During the minimum curing period, what temperature should no part of the concrete surface fall below?",
+    "answer": "5 °C."
+  },
+  {
+    "id": 180,
+    "type": "Material properties",
+    "clause": "Table 6.1",
+    "question": "Per Table 6.1, what is the minimum curing period for concrete made with CEM I 42.5 or CEM I 52.5 under average ambient conditions, at surface temperature 5–10 °C?",
+    "answer": "4 days."
+  },
+  {
+    "id": 181,
+    "type": "Design principles",
+    "clause": "6.2.4.1",
+    "question": "What temperature and strength criterion must be met before concrete is considered safe from permanent freezing damage?",
+    "answer": "The concrete temperature should not fall below 5 °C until the concrete reaches a strength of 5 N/mm² (assessed by cube tests cured under similar conditions to the element)."
+  },
+  {
+    "id": 182,
+    "type": "Design principles",
+    "clause": "6.2.5",
+    "question": "What maximum concrete temperature at placing applies in hot weather concreting, unless otherwise justified?",
+    "answer": "30 °C."
+  },
+  {
+    "id": 183,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 6.2",
+    "question": "Per Table 6.2, what is the minimum period before striking vertical formwork to columns, walls and large beams at 16 °C and above?",
+    "answer": "12 hours."
+  },
+  {
+    "id": 184,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 6.2",
+    "question": "Per Table 6.2, what is the minimum period before striking soffit formwork to slabs at 16 °C and above?",
+    "answer": "4 days."
+  },
+  {
+    "id": 185,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 6.2",
+    "question": "Per Table 6.2, what is the minimum period before striking soffit formwork to beams (with props retained to slabs) at 16 °C and above?",
+    "answer": "10 days."
+  },
+  {
+    "id": 186,
+    "type": "Minimum/Maximum limits",
+    "clause": "Table 6.2",
+    "question": "Per Table 6.2, what is the minimum period before removing props to beams at 16 °C and above?",
+    "answer": "14 days."
+  },
+  {
+    "id": 187,
+    "type": "Design principles",
+    "clause": "6.2.6.3.2",
+    "question": "What alternative criterion allows earlier striking of formwork supporting cast in-situ concrete in flexure?",
+    "answer": "Formwork may be struck when the concrete strength in the element reaches 10 N/mm² or twice the stress to which it will be subjected, whichever is greater, provided this does not cause unacceptable deflection."
+  },
+  {
+    "id": 188,
+    "type": "Calculation",
+    "clause": "3.4.4.4",
+    "question": "A rectangular beam has b = 300 mm, d = 500 mm, fcu = 30 N/mm², fy = 500 N/mm², and design ultimate moment M = 150 kNm. Calculate K and state whether compression reinforcement is required.",
+    "answer": "K = M/(bd²fcu) = 150×10⁶/(300×500²×30) = 0.067. Since K (0.067) < K' (0.156), compression reinforcement is NOT required."
+  },
+  {
+    "id": 189,
+    "type": "Calculation",
+    "clause": "3.4.4.4",
+    "question": "For the beam in the previous question (b=300mm, d=500mm, fcu=30N/mm², fy=500N/mm², M=150kNm, K=0.067), calculate the lever arm z.",
+    "answer": "z = d{0.5 + √(0.25 − K/0.9)} = 500{0.5 + √(0.25 − 0.0741)} = 500{0.5 + 0.4194} = 459.7 mm, which is less than 0.95d (475 mm), so z = 459.7 mm."
+  },
+  {
+    "id": 190,
+    "type": "Calculation",
+    "clause": "3.4.4.4",
+    "question": "For the same beam (M = 150 kNm, fy = 500 N/mm², z = 459.7 mm), calculate the required area of tension reinforcement As.",
+    "answer": "As = M/(0.87fy z) = 150×10⁶/(0.87×500×459.7) ≈ 750 mm²."
+  },
+  {
+    "id": 191,
+    "type": "Calculation",
+    "clause": "3.4.5.2",
+    "question": "A beam has bv = 300 mm, d = 500 mm, and design ultimate shear force V = 180 kN. Calculate the design shear stress v.",
+    "answer": "v = V/(bvd) = 180×10³/(300×500) = 1.2 N/mm²."
+  },
+  {
+    "id": 192,
+    "type": "Calculation",
+    "clause": "3.4.5.2",
+    "question": "For a beam with fcu = 30 N/mm², what is the maximum permitted design shear stress v (regardless of shear reinforcement provided)?",
+    "answer": "The lesser of 0.8√fcu = 0.8×√30 = 4.38 N/mm² or 5 N/mm² — so the limit is 4.38 N/mm²."
+  },
+  {
+    "id": 193,
+    "type": "Calculation",
+    "clause": "3.4.6.3",
+    "question": "A simply-supported rectangular beam has a span of 6 m and effective depth of 400 mm. Compare the actual span/effective depth ratio to the basic limiting value from Table 3.9.",
+    "answer": "Actual ratio = 6000/400 = 15. The basic ratio for a simply-supported rectangular beam (Table 3.9) is 20. Since 15 < 20, the beam satisfies the basic deflection check."
+  },
+  {
+    "id": 194,
+    "type": "Calculation",
+    "clause": "3.12.5.3 / Table 3.25",
+    "question": "A rectangular beam has b = 300 mm and h = 500 mm, with fy = 500 N/mm². Calculate the minimum tension reinforcement area required per Table 3.25.",
+    "answer": "As,min = 0.13% × b × h = 0.0013 × 300 × 500 = 195 mm²."
+  },
+  {
+    "id": 195,
+    "type": "Calculation",
+    "clause": "3.12.6.1",
+    "question": "A rectangular beam section has b = 300 mm and h = 500 mm. Calculate the maximum permitted area of tension reinforcement.",
+    "answer": "Ac = 300×500 = 150,000 mm². As,max = 4% × 150,000 = 6,000 mm²."
+  },
+  {
+    "id": 196,
+    "type": "Calculation",
+    "clause": "3.12.8.4 equation 49",
+    "question": "Calculate the design ultimate anchorage bond stress fbu for a Type 2 deformed bar in tension, in concrete of strength class C30/37 (fcu = 30 N/mm²).",
+    "answer": "fbu = β√fcu = 0.50 × √30 = 0.50 × 5.48 = 2.74 N/mm²."
+  },
+  {
+    "id": 197,
+    "type": "Calculation",
+    "clause": "3.12.8.11",
+    "question": "What is the minimum lap length required for a 25 mm diameter bar?",
+    "answer": "15 × 25 mm = 375 mm, which exceeds 300 mm, so the minimum lap length is 375 mm."
+  },
+  {
+    "id": 198,
+    "type": "Calculation",
+    "clause": "Table 3.10 equation 7",
+    "question": "Using equation 7, calculate the modification factor for tension reinforcement given a service stress fs = 250 N/mm² and M/bd² = 4.",
+    "answer": "Modification factor = 0.55 + (477 − 250)/[120(0.9 + 4)] = 0.55 + 227/588 = 0.55 + 0.386 = 0.94 (≤ 2.0, so 0.94 governs)."
+  },
+  {
+    "id": 199,
+    "type": "Calculation",
+    "clause": "Table 3.10 equation 8",
+    "question": "Using equation 8, estimate the service stress fs given fy = 500 N/mm², As,req = 1200 mm², As,prov = 1500 mm², and βb = 1.0.",
+    "answer": "fs = (2fyAs,req)/(3As,prov βb) = (2×500×1200)/(3×1500×1.0) = 1,200,000/4,500 = 266.7 N/mm²."
+  },
+  {
+    "id": 200,
+    "type": "Calculation",
+    "clause": "Table 3.11 equation 9",
+    "question": "Using equation 9, calculate the modification factor for compression reinforcement given 100As'/bd = 1.0.",
+    "answer": "Modification factor = 1 + [1.0/(3+1.0)] = 1 + 0.25 = 1.25 (matching the tabulated value for 100As'/bd = 1.0)."
+  }
+]
