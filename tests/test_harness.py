@@ -78,3 +78,24 @@ def test_controller_rejects_tool_not_allowed_for_task():
     controller = HarnessController(router)
     with pytest.raises(HarnessExecutionError, match="not permitted"):
         controller.execute(task="engineering_adviser", tool="frame_solver", inputs={"query": "hello"})
+
+
+def test_adviser_can_pass_retrieval_context_to_tool_without_harness_context_collision():
+    captured = {}
+    def adviser(prompt, context, history=None, project_context=None, model=None):
+        captured.update(prompt=prompt, context=context, history=history)
+        return "adviser response"
+    router = ToolRouter()
+    router.register("groq_text_adviser", adviser)
+    controller = HarnessController(router)
+    result = controller.execute(
+        task="engineering_adviser",
+        tool="groq_text_adviser",
+        inputs={"query": "Explain beam shear"},
+        harness_context={"project_name": "Test project"},
+        prompt="Explain beam shear",
+        context="Retrieved BS 8110 references",
+        history=[],
+    )
+    assert result == "adviser response"
+    assert captured["context"] == "Retrieved BS 8110 references"

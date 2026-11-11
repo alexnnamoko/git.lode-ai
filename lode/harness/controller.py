@@ -16,7 +16,7 @@ class HarnessController:
         self.audit_sink = audit_sink
         self.orchestrator = orchestrator or TaskOrchestrator()
 
-    def execute(self, *, task: str, tool: str, inputs: dict, context: dict | None = None, **tool_kwargs):
+    def execute(self, *, task: str, tool: str, inputs: dict, harness_context: dict | None = None, **tool_kwargs):
         execution_id = str(uuid.uuid4())
         started = time.perf_counter()
         try:
@@ -45,9 +45,9 @@ class HarnessController:
                 result = dict(result)
                 result["harness"] = {"execution_id": execution_id, "task": task,
                                     "route": routed_tool,
-                                    "context_summary": {"project_name": (context or {}).get("project_name", ""),
-                                                        "verified_observation_count": len((context or {}).get("verified_observations", [])),
-                                                        "retrieved_source_count": len((context or {}).get("retrieved_sources", []))},
+                                    "context_summary": {"project_name": (harness_context or {}).get("project_name", ""),
+                                                        "verified_observation_count": len((harness_context or {}).get("verified_observations", [])),
+                                                        "retrieved_source_count": len((harness_context or {}).get("retrieved_sources", []))},
                                     **safety}
             record = make_audit_record(task=task, status="COMPLETED", inputs=inputs,
                                        elapsed_ms=(time.perf_counter()-started)*1000, execution_id=execution_id)

@@ -92,7 +92,7 @@ def harness_run(task, tool_name, tool_fn, inputs, **tool_kwargs):
         project_notes=st.session_state.get("project_notes", ""),
         verified_observations=st.session_state.get("verified_data", []),
     )
-    return controller.execute(task=task, tool=tool_name, inputs=inputs, context=context, **tool_kwargs)
+    return controller.execute(task=task, tool=tool_name, inputs=inputs, harness_context=context, **tool_kwargs)
 
 with st.sidebar:
     st.markdown("<div style='font-size:1.35rem;font-weight:800;letter-spacing:-.04em'>LODE<span style='color:#62d6d4'>.ai</span></div><div style='font-size:.75rem;color:#a9c3d6;margin-bottom:12px'>ATLAS.AI · STRUCTURAL DESIGN</div>", unsafe_allow_html=True)
