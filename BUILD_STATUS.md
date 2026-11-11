@@ -1,6 +1,6 @@
 # Build status — LODE.ai / Atlas.ai
 
-**Build:** 0.10.2-beta — interface safety and controlled prototype test preparation
+**Build:** 0.10.3-beta — interface safety and controlled prototype test preparation
 
 ## Included
 - Groq-hosted Atlas text and vision integration retained.

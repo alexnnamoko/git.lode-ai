@@ -34,7 +34,7 @@ from lode.ai.client import DEFAULT_MODEL, analyse_image, ask_text, parse_json_re
 from lode.ai.context import build_project_context
 from lode.drawing.validation import normalise_vision_response, merge_review_observations
 
-APP_VERSION = "0.10.2-beta"
+APP_VERSION = "0.10.3-beta"
 WARNING = ("ACADEMIC RESEARCH PROTOTYPE — NOT FOR CONSTRUCTION. All drawing interpretations, "
            "loads, assumptions, calculations, code references and reinforcement details require "
            "independent verification by a qualified structural engineer against the complete applicable standards.")
@@ -82,14 +82,9 @@ with st.sidebar:
     st.markdown("<div style='font-size:.68rem;color:#88a9c2;letter-spacing:.14em;font-weight:700;margin:12px 0 5px'>NAVIGATION</div>", unsafe_allow_html=True)
     page = st.radio("WORKSPACE", PAGES, label_visibility="collapsed")
     st.divider()
-    key_ready = bool(os.getenv("GROQ_API_KEY"))
-    st.markdown("**AI connection**  ☁️ Groq hosted API")
-    st.success("Groq API key detected") if key_ready else st.warning("Add GROQ_API_KEY to .env / Streamlit Secrets")
-    st.caption("AI assistant · Groq hosted")
-    st.caption("Drawing text recognition · Tesseract")
+    st.caption("Engineering research workspace")
     st.divider()
-    st.caption(f"Build {APP_VERSION}")
-    st.caption("Research use only · Not for construction")
+    st.caption("Prototype · Independent engineering review required")
 
 
 def heading(title, subtitle=""):
@@ -235,24 +230,28 @@ def render_analysis_json(obj):
 
 
 if page=="Overview":
-    heading("Project overview","A traceable workflow from drawing evidence to preliminary RC design outputs.")
-    a,b,c,d=st.columns(4); a.metric("Design modules","03"); b.metric("Knowledge records","335"); c.metric("AI assistant","Atlas.ai"); d.metric("Build",APP_VERSION)
+    heading("Project overview", "A clear workspace for reviewing drawing evidence and exploring preliminary reinforced-concrete design workflows.")
+    a,b,c=st.columns(3)
+    a.metric("Design modules", "03")
+    b.metric("Knowledge records", "335")
+    c.metric("Assistant", "Atlas.ai")
+
     st.markdown("### Engineering workflow")
-    cards=[("01 · Drawing input","Upload PDF or image drawings; inspect pages and extract text with Tesseract."),("02 · Multimodal interpretation","Use hosted Groq vision to propose visible labels, dimensions and element observations with uncertainty."),("03 · Engineer verification","Review and confirm extracted observations before using them as engineering inputs."),("04 · Analysis & design","Run supported beam statics and preliminary BS 8110 beam, slab and column modules."),("05 · Traceable output","Review reinforcement schedules and export a project report."),("06 · Evaluation","Inspect OCR, CLIP diagnostics, dataset structure and controlled test evidence.")]
+    cards=[
+        ("01 · Drawing input", "Upload PDF or image drawings and review the source pages."),
+        ("02 · Drawing interpretation", "Extract printed text and request AI-assisted observations from selected drawing pages."),
+        ("03 · Engineer verification", "Review, correct and verify drawing observations before using them as engineering inputs."),
+        ("04 · Analysis and design", "Explore supported beam analysis and preliminary BS 8110 beam, slab and column workflows."),
+        ("05 · Reports and records", "Review reinforcement schedules and export the current project session and reports."),
+    ]
     cols=st.columns(3)
     for i,(title,desc) in enumerate(cards):
-        with cols[i%3]: st.markdown(f"<div class='card'><h3>{title}</h3><p>{desc}</p></div>",unsafe_allow_html=True)
-    st.markdown("### System status")
-    c1,c2,c3=st.columns(3); c1.success("Groq API key detected") if key_ready else c1.warning("Groq API key not configured")
-    ok,ocr_info=configure_tesseract(); c2.success("Tesseract OCR detected") if ok else c2.warning("Tesseract not detected on this machine / host.")
-    c3.info("CLIP ViT-B/32 encoder: optional install; open Developer & Evaluation for diagnostics.")
-    if st.button("Test Groq API connection"):
-        try:
-            with st.spinner("Testing the configured model…"):
-                ping=test_connection(model=st.session_state.model)
-            st.success("Groq model responded successfully."); st.caption(ping)
-        except Exception as e: report_error("Groq connection", e, "The AI service could not be reached. Check the connection configuration and try again.")
-    show_warning()
+        with cols[i%3]:
+            st.markdown(f"<div class='card'><h3>{title}</h3><p>{desc}</p></div>", unsafe_allow_html=True)
+
+    st.markdown("### Getting started")
+    st.markdown("1. Open **Projects** and enter the project description and design basis.\n2. Use **Drawing Studio** to upload and inspect drawing information.\n3. Review proposed observations in **Engineer Verification**.\n4. Open the relevant design or analysis workspace and check every input and assumption.\n5. Use **Reports & Exports** to retain a record of the session.")
+    st.info("Atlas.ai is an academic research prototype. AI interpretations, retrieved references, assumptions, calculations and reinforcement details require independent review by a qualified structural engineer. Do not use this prototype for construction or professional approval.")
 
 elif page=="Projects":
     heading("Project register","Project metadata and current-session engineering evidence.")

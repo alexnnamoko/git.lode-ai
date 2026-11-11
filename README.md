@@ -1,6 +1,6 @@
 # LODE.ai / Atlas.ai — Groq-hosted multimodal build
 
-**Current refinement package:** 0.10.2-beta
+**Current refinement package:** 0.10.3-beta
 
 Academic research prototype for exploring a multimodal engineering assistant for reinforced-concrete design. **Not for construction or independent engineering approval.**
 
