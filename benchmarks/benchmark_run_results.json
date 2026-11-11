@@ -1,0 +1,839 @@
+{
+  "benchmark_suite": "Atlas.ai Structural Analysis Benchmark v1.1",
+  "units": "kN, m, kN/m\u00b2, m\u00b2, m\u2074; displacements reported in mm",
+  "frame_properties": {
+    "E_kN_m2": 200000000.0,
+    "A_m2": 0.02,
+    "I_m4": 8e-05
+  },
+  "results": [
+    {
+      "id": "BM001",
+      "status": "PASS",
+      "reference": {
+        "reaction_A_kN": 10,
+        "reaction_B_kN": 10,
+        "max_abs_shear_kN": 10,
+        "max_abs_moment_kNm": 30,
+        "max_moment_location_m": 3
+      },
+      "atlas": {
+        "reaction_A_kN": 10.0,
+        "reaction_B_kN": 10.0,
+        "max_abs_shear_kN": 10.0,
+        "max_abs_moment_kNm": 30.0,
+        "max_moment_location_m": 3.0
+      },
+      "method": "Closed-form beam statics",
+      "checks": {
+        "vertical_equilibrium_error_kN": 0.0,
+        "moment_equilibrium_error_kNm": 0.0
+      }
+    },
+    {
+      "id": "BM002",
+      "status": "PASS",
+      "reference": {
+        "reaction_A_kN": 30,
+        "reaction_B_kN": 30,
+        "max_abs_shear_kN": 30,
+        "max_abs_moment_kNm": 45,
+        "max_moment_location_m": 3
+      },
+      "atlas": {
+        "reaction_A_kN": 30.0,
+        "reaction_B_kN": 30.0,
+        "max_abs_shear_kN": 30.0,
+        "max_abs_moment_kNm": 45.0,
+        "max_moment_location_m": 3.0
+      },
+      "method": "Closed-form beam statics",
+      "checks": {
+        "vertical_equilibrium_error_kN": 0.0,
+        "moment_equilibrium_error_kNm": 0.0
+      }
+    },
+    {
+      "id": "BM003",
+      "status": "PASS",
+      "reference": {
+        "reaction_vertical_kN": 10,
+        "reaction_moment_kNm": 30,
+        "max_abs_shear_kN": 10,
+        "max_abs_moment_kNm": 30
+      },
+      "atlas": {
+        "reaction_vertical_kN": 10,
+        "reaction_moment_kNm": 30,
+        "max_abs_shear_kN": 10,
+        "max_abs_moment_kNm": 30
+      },
+      "method": "Closed-form cantilever statics",
+      "checks": {
+        "vertical_equilibrium_error_kN": 0.0,
+        "moment_equilibrium_error_kNm": 0.0
+      }
+    },
+    {
+      "id": "BM004",
+      "status": "PASS",
+      "reference": {
+        "reaction_A_vertical_kN": 13.75,
+        "reaction_B_vertical_kN": 6.25,
+        "reaction_A_moment_kNm": 22.5
+      },
+      "atlas": {
+        "reaction_A_vertical_kN": 13.75,
+        "reaction_B_vertical_kN": 6.250000000000002,
+        "reaction_A_moment_kNm": 22.5,
+        "mid_joint_uy_mm": -2.4609374999999996
+      },
+      "method": "Closed-form compatibility solution vs Atlas 2D frame stiffness solver",
+      "checks": {
+        "vertical_equilibrium_error_kN": 0.0,
+        "reference_moment_equilibrium_error_kNm": 0.0
+      },
+      "member_end_actions": {
+        "AM": [
+          0.0,
+          13.75,
+          22.5,
+          0.0,
+          -13.75,
+          18.75
+        ],
+        "MB": [
+          0.0,
+          -6.250000000000002,
+          -18.75,
+          0.0,
+          6.250000000000002,
+          -3.1086244689504383e-15
+        ]
+      }
+    },
+    {
+      "id": "BM005",
+      "status": "PASS",
+      "reference_method": "Independent NumPy matrix assembly (separate implementation)",
+      "atlas_method": "2D linear-elastic direct stiffness method",
+      "max_abs_difference": 1.4210854715202004e-14,
+      "compared_outputs": [
+        {
+          "node": "BL",
+          "output": "ux_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BL",
+          "output": "uy_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BL",
+          "output": "reaction_Fx_kN",
+          "reference": 5.987227248536457,
+          "atlas": 5.9872272485364535,
+          "abs_error": 3.552713678800501e-15
+        },
+        {
+          "node": "BL",
+          "output": "reaction_Fy_kN",
+          "reference": 10.0,
+          "atlas": 10.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BL",
+          "output": "reaction_Mz_kNm",
+          "reference": -5.971261309207028,
+          "atlas": -5.971261309207024,
+          "abs_error": 4.440892098500626e-15
+        },
+        {
+          "node": "BR",
+          "output": "ux_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BR",
+          "output": "uy_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BR",
+          "output": "reaction_Fx_kN",
+          "reference": -5.987227248536453,
+          "atlas": -5.9872272485364535,
+          "abs_error": 8.881784197001252e-16
+        },
+        {
+          "node": "BR",
+          "output": "reaction_Fy_kN",
+          "reference": 10.0,
+          "atlas": 9.999999999999998,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "node": "BR",
+          "output": "reaction_Mz_kNm",
+          "reference": 5.97126130920702,
+          "atlas": 5.971261309207022,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "node": "TL",
+          "output": "ux_mm",
+          "reference": 0.004490420436401889,
+          "atlas": 0.0044904204364020085,
+          "abs_error": 1.196959198423997e-16
+        },
+        {
+          "node": "TL",
+          "output": "uy_mm",
+          "reference": -0.007500000000000001,
+          "atlas": -0.0075000000000000015,
+          "abs_error": 8.673617379884035e-19
+        },
+        {
+          "node": "TM",
+          "output": "ux_mm",
+          "reference": -4.548005371824321e-16,
+          "atlas": -3.2526065174565133e-16,
+          "abs_error": 1.295398854367808e-16
+        },
+        {
+          "node": "TM",
+          "output": "uy_mm",
+          "reference": -2.260194252261841,
+          "atlas": -2.260194252261841,
+          "abs_error": 0.0
+        },
+        {
+          "node": "TR",
+          "output": "ux_mm",
+          "reference": -0.004490420436402798,
+          "atlas": -0.004490420436402659,
+          "abs_error": 1.3877787807814457e-16
+        },
+        {
+          "node": "TR",
+          "output": "uy_mm",
+          "reference": -0.007500000000000001,
+          "atlas": -0.0075,
+          "abs_error": 8.673617379884035e-19
+        },
+        {
+          "member": "CL",
+          "end_action_index": 0,
+          "reference": 10.0,
+          "atlas": 10.0,
+          "abs_error": 0.0
+        },
+        {
+          "member": "CL",
+          "end_action_index": 1,
+          "reference": -5.987227248536457,
+          "atlas": -5.9872272485364535,
+          "abs_error": 3.552713678800501e-15
+        },
+        {
+          "member": "CL",
+          "end_action_index": 2,
+          "reference": -5.971261309207028,
+          "atlas": -5.971261309207024,
+          "abs_error": 4.440892098500626e-15
+        },
+        {
+          "member": "CL",
+          "end_action_index": 3,
+          "reference": -10.0,
+          "atlas": -10.0,
+          "abs_error": 0.0
+        },
+        {
+          "member": "CL",
+          "end_action_index": 4,
+          "reference": 5.987227248536457,
+          "atlas": 5.9872272485364535,
+          "abs_error": 3.552713678800501e-15
+        },
+        {
+          "member": "CL",
+          "end_action_index": 5,
+          "reference": -11.990420436402342,
+          "atlas": -11.990420436402337,
+          "abs_error": 5.329070518200751e-15
+        },
+        {
+          "member": "CR",
+          "end_action_index": 0,
+          "reference": 10.0,
+          "atlas": 9.999999999999998,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "CR",
+          "end_action_index": 1,
+          "reference": 5.987227248536453,
+          "atlas": 5.9872272485364535,
+          "abs_error": 8.881784197001252e-16
+        },
+        {
+          "member": "CR",
+          "end_action_index": 2,
+          "reference": 5.97126130920702,
+          "atlas": 5.971261309207022,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "CR",
+          "end_action_index": 3,
+          "reference": -10.0,
+          "atlas": -9.999999999999998,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "CR",
+          "end_action_index": 4,
+          "reference": -5.987227248536453,
+          "atlas": -5.9872272485364535,
+          "abs_error": 8.881784197001252e-16
+        },
+        {
+          "member": "CR",
+          "end_action_index": 5,
+          "reference": 11.990420436402337,
+          "atlas": 11.990420436402339,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "B1",
+          "end_action_index": 0,
+          "reference": 5.987227248536458,
+          "atlas": 5.987227248536444,
+          "abs_error": 1.4210854715202004e-14
+        },
+        {
+          "member": "B1",
+          "end_action_index": 1,
+          "reference": 9.999999999999998,
+          "atlas": 10.0,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "B1",
+          "end_action_index": 2,
+          "reference": 11.990420436402342,
+          "atlas": 11.990420436402347,
+          "abs_error": 5.329070518200751e-15
+        },
+        {
+          "member": "B1",
+          "end_action_index": 3,
+          "reference": -5.987227248536458,
+          "atlas": -5.987227248536444,
+          "abs_error": 1.4210854715202004e-14
+        },
+        {
+          "member": "B1",
+          "end_action_index": 4,
+          "reference": -9.999999999999998,
+          "atlas": -10.0,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "B1",
+          "end_action_index": 5,
+          "reference": 18.009579563597658,
+          "atlas": 18.009579563597658,
+          "abs_error": 0.0
+        },
+        {
+          "member": "B2",
+          "end_action_index": 0,
+          "reference": 5.987227248536456,
+          "atlas": 5.987227248536445,
+          "abs_error": 1.1546319456101628e-14
+        },
+        {
+          "member": "B2",
+          "end_action_index": 1,
+          "reference": -9.999999999999996,
+          "atlas": -9.999999999999998,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "B2",
+          "end_action_index": 2,
+          "reference": -18.009579563597654,
+          "atlas": -18.009579563597658,
+          "abs_error": 3.552713678800501e-15
+        },
+        {
+          "member": "B2",
+          "end_action_index": 3,
+          "reference": -5.987227248536456,
+          "atlas": -5.987227248536445,
+          "abs_error": 1.1546319456101628e-14
+        },
+        {
+          "member": "B2",
+          "end_action_index": 4,
+          "reference": 9.999999999999996,
+          "atlas": 9.999999999999998,
+          "abs_error": 1.7763568394002505e-15
+        },
+        {
+          "member": "B2",
+          "end_action_index": 5,
+          "reference": -11.990420436402339,
+          "atlas": -11.99042043640234,
+          "abs_error": 1.7763568394002505e-15
+        }
+      ],
+      "equilibrium": {
+        "sum_fx_kN": 8.881784197001252e-16,
+        "sum_fy_kN": 3.552713678800501e-15
+      },
+      "reference_member_end_actions": {
+        "CL": [
+          10.0,
+          -5.987227248536457,
+          -5.971261309207028,
+          -10.0,
+          5.987227248536457,
+          -11.990420436402342
+        ],
+        "CR": [
+          10.0,
+          5.987227248536453,
+          5.97126130920702,
+          -10.0,
+          -5.987227248536453,
+          11.990420436402337
+        ],
+        "B1": [
+          5.987227248536458,
+          9.999999999999998,
+          11.990420436402342,
+          -5.987227248536458,
+          -9.999999999999998,
+          18.009579563597658
+        ],
+        "B2": [
+          5.987227248536456,
+          -9.999999999999996,
+          -18.009579563597654,
+          -5.987227248536456,
+          9.999999999999996,
+          -11.990420436402339
+        ]
+      },
+      "atlas_member_end_actions": {
+        "CL": [
+          10.0,
+          -5.9872272485364535,
+          -5.971261309207024,
+          -10.0,
+          5.9872272485364535,
+          -11.990420436402337
+        ],
+        "CR": [
+          9.999999999999998,
+          5.9872272485364535,
+          5.971261309207022,
+          -9.999999999999998,
+          -5.9872272485364535,
+          11.990420436402339
+        ],
+        "B1": [
+          5.987227248536444,
+          10.0,
+          11.990420436402347,
+          -5.987227248536444,
+          -10.0,
+          18.009579563597658
+        ],
+        "B2": [
+          5.987227248536445,
+          -9.999999999999998,
+          -18.009579563597658,
+          -5.987227248536445,
+          9.999999999999998,
+          -11.99042043640234
+        ]
+      }
+    },
+    {
+      "id": "BM006",
+      "status": "PASS",
+      "reference_method": "Independent NumPy matrix assembly (separate implementation)",
+      "atlas_method": "2D linear-elastic direct stiffness method",
+      "max_abs_difference": 9.094947017729282e-13,
+      "compared_outputs": [
+        {
+          "node": "BL",
+          "output": "ux_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BL",
+          "output": "uy_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BL",
+          "output": "reaction_Fx_kN",
+          "reference": -10.021287919106474,
+          "atlas": -10.021287919106271,
+          "abs_error": 2.0250467969162855e-13
+        },
+        {
+          "node": "BL",
+          "output": "reaction_Fy_kN",
+          "reference": -3.7487504165280363,
+          "atlas": -3.7487504165279586,
+          "abs_error": 7.771561172376096e-14
+        },
+        {
+          "node": "BL",
+          "output": "reaction_Mz_kNm",
+          "reference": 18.80164656840588,
+          "atlas": 18.8016465684055,
+          "abs_error": 3.801403636316536e-13
+        },
+        {
+          "node": "BR",
+          "output": "ux_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BR",
+          "output": "uy_mm",
+          "reference": 0.0,
+          "atlas": 0.0,
+          "abs_error": 0.0
+        },
+        {
+          "node": "BR",
+          "output": "reaction_Fx_kN",
+          "reference": -9.978712080894658,
+          "atlas": -9.978712080894454,
+          "abs_error": 2.042810365310288e-13
+        },
+        {
+          "node": "BR",
+          "output": "reaction_Fy_kN",
+          "reference": 3.7487504165280345,
+          "atlas": 3.7487504165279577,
+          "abs_error": 7.682743330406083e-14
+        },
+        {
+          "node": "BR",
+          "output": "reaction_Mz_kNm",
+          "reference": 18.705850932429296,
+          "atlas": 18.70585093242891,
+          "abs_error": 3.872457909892546e-13
+        },
+        {
+          "node": "TL",
+          "output": "ux_mm",
+          "reference": 2.4694758701154575,
+          "atlas": 2.4694758701154074,
+          "abs_error": 5.0182080713057076e-14
+        },
+        {
+          "node": "TL",
+          "output": "uy_mm",
+          "reference": 0.0028115628123960273,
+          "atlas": 0.002811562812395969,
+          "abs_error": 5.811323644522304e-17
+        },
+        {
+          "node": "TM",
+          "output": "ux_mm",
+          "reference": 2.461991836054787,
+          "atlas": 2.461991836054736,
+          "abs_error": 5.10702591327572e-14
+        },
+        {
+          "node": "TM",
+          "output": "uy_mm",
+          "reference": -0.004490420436402215,
+          "atlas": -0.0044904204364020085,
+          "abs_error": 2.0643209364124004e-16
+        },
+        {
+          "node": "TR",
+          "output": "ux_mm",
+          "reference": 2.454507801994117,
+          "atlas": 2.4545078019940663,
+          "abs_error": 5.062616992290714e-14
+        },
+        {
+          "node": "TR",
+          "output": "uy_mm",
+          "reference": -0.002811562812396026,
+          "atlas": -0.0028115628123959687,
+          "abs_error": 5.724587470723463e-17
+        },
+        {
+          "member": "CL",
+          "end_action_index": 0,
+          "reference": -3.7487504165280363,
+          "atlas": -3.7487504165279586,
+          "abs_error": 7.771561172376096e-14
+        },
+        {
+          "member": "CL",
+          "end_action_index": 1,
+          "reference": 10.021287919106472,
+          "atlas": 10.021287919106271,
+          "abs_error": 2.007283228522283e-13
+        },
+        {
+          "member": "CL",
+          "end_action_index": 2,
+          "reference": 18.80164656840588,
+          "atlas": 18.8016465684055,
+          "abs_error": 3.801403636316536e-13
+        },
+        {
+          "member": "CL",
+          "end_action_index": 3,
+          "reference": 3.7487504165280363,
+          "atlas": 3.7487504165279586,
+          "abs_error": 7.771561172376096e-14
+        },
+        {
+          "member": "CL",
+          "end_action_index": 4,
+          "reference": -10.021287919106472,
+          "atlas": -10.021287919106271,
+          "abs_error": 2.007283228522283e-13
+        },
+        {
+          "member": "CL",
+          "end_action_index": 5,
+          "reference": 11.262217188913537,
+          "atlas": 11.262217188913313,
+          "abs_error": 2.2382096176443156e-13
+        },
+        {
+          "member": "CR",
+          "end_action_index": 0,
+          "reference": 3.7487504165280345,
+          "atlas": 3.7487504165279577,
+          "abs_error": 7.682743330406083e-14
+        },
+        {
+          "member": "CR",
+          "end_action_index": 1,
+          "reference": 9.97871208089466,
+          "atlas": 9.978712080894454,
+          "abs_error": 2.0605739337042905e-13
+        },
+        {
+          "member": "CR",
+          "end_action_index": 2,
+          "reference": 18.705850932429296,
+          "atlas": 18.70585093242891,
+          "abs_error": 3.872457909892546e-13
+        },
+        {
+          "member": "CR",
+          "end_action_index": 3,
+          "reference": -3.7487504165280345,
+          "atlas": -3.7487504165279577,
+          "abs_error": 7.682743330406083e-14
+        },
+        {
+          "member": "CR",
+          "end_action_index": 4,
+          "reference": -9.97871208089466,
+          "atlas": -9.978712080894454,
+          "abs_error": 2.0605739337042905e-13
+        },
+        {
+          "member": "CR",
+          "end_action_index": 5,
+          "reference": 11.230285310254677,
+          "atlas": 11.230285310254445,
+          "abs_error": 2.327027459614328e-13
+        },
+        {
+          "member": "B1",
+          "end_action_index": 0,
+          "reference": 9.978712080894184,
+          "atlas": 9.978712080895093,
+          "abs_error": 9.094947017729282e-13
+        },
+        {
+          "member": "B1",
+          "end_action_index": 1,
+          "reference": -3.7487504165280354,
+          "atlas": -3.74875041652796,
+          "abs_error": 7.549516567451064e-14
+        },
+        {
+          "member": "B1",
+          "end_action_index": 2,
+          "reference": -11.262217188913537,
+          "atlas": -11.262217188913308,
+          "abs_error": 2.291500322826323e-13
+        },
+        {
+          "member": "B1",
+          "end_action_index": 3,
+          "reference": -9.978712080894184,
+          "atlas": -9.978712080895093,
+          "abs_error": 9.094947017729282e-13
+        },
+        {
+          "member": "B1",
+          "end_action_index": 4,
+          "reference": 3.7487504165280354,
+          "atlas": 3.74875041652796,
+          "abs_error": 7.549516567451064e-14
+        },
+        {
+          "member": "B1",
+          "end_action_index": 5,
+          "reference": 0.01596593932943069,
+          "atlas": 0.01596593932942726,
+          "abs_error": 3.427813588530171e-15
+        },
+        {
+          "member": "B2",
+          "end_action_index": 0,
+          "reference": 9.978712080893729,
+          "atlas": 9.978712080893274,
+          "abs_error": 4.547473508864641e-13
+        },
+        {
+          "member": "B2",
+          "end_action_index": 1,
+          "reference": -3.7487504165280345,
+          "atlas": -3.7487504165279573,
+          "abs_error": 7.72715225139109e-14
+        },
+        {
+          "member": "B2",
+          "end_action_index": 2,
+          "reference": -0.015965939329428913,
+          "atlas": -0.015965939329428837,
+          "abs_error": 7.632783294297951e-17
+        },
+        {
+          "member": "B2",
+          "end_action_index": 3,
+          "reference": -9.978712080893729,
+          "atlas": -9.978712080893274,
+          "abs_error": 4.547473508864641e-13
+        },
+        {
+          "member": "B2",
+          "end_action_index": 4,
+          "reference": 3.7487504165280345,
+          "atlas": 3.7487504165279573,
+          "abs_error": 7.72715225139109e-14
+        },
+        {
+          "member": "B2",
+          "end_action_index": 5,
+          "reference": -11.230285310254676,
+          "atlas": -11.230285310254443,
+          "abs_error": 2.327027459614328e-13
+        }
+      ],
+      "equilibrium": {
+        "sum_fx_kN": -2.7000623958883807e-13,
+        "sum_fy_kN": -3.469446951953614e-18
+      },
+      "reference_member_end_actions": {
+        "CL": [
+          -3.7487504165280363,
+          10.021287919106472,
+          18.80164656840588,
+          3.7487504165280363,
+          -10.021287919106472,
+          11.262217188913537
+        ],
+        "CR": [
+          3.7487504165280345,
+          9.97871208089466,
+          18.705850932429296,
+          -3.7487504165280345,
+          -9.97871208089466,
+          11.230285310254677
+        ],
+        "B1": [
+          9.978712080894184,
+          -3.7487504165280354,
+          -11.262217188913537,
+          -9.978712080894184,
+          3.7487504165280354,
+          0.01596593932943069
+        ],
+        "B2": [
+          9.978712080893729,
+          -3.7487504165280345,
+          -0.015965939329428913,
+          -9.978712080893729,
+          3.7487504165280345,
+          -11.230285310254676
+        ]
+      },
+      "atlas_member_end_actions": {
+        "CL": [
+          -3.7487504165279586,
+          10.021287919106271,
+          18.8016465684055,
+          3.7487504165279586,
+          -10.021287919106271,
+          11.262217188913313
+        ],
+        "CR": [
+          3.7487504165279577,
+          9.978712080894454,
+          18.70585093242891,
+          -3.7487504165279577,
+          -9.978712080894454,
+          11.230285310254445
+        ],
+        "B1": [
+          9.978712080895093,
+          -3.74875041652796,
+          -11.262217188913308,
+          -9.978712080895093,
+          3.74875041652796,
+          0.01596593932942726
+        ],
+        "B2": [
+          9.978712080893274,
+          -3.7487504165279573,
+          -0.015965939329428837,
+          -9.978712080893274,
+          3.7487504165279573,
+          -11.230285310254443
+        ]
+      }
+    }
+  ],
+  "interpretation": "BM001-BM004 compare to closed-form analytical solutions. BM005-BM006 compare Atlas to a separately implemented NumPy stiffness solver using the same linear-elastic Euler-Bernoulli theory; this is a cross-implementation check, not external commercial-software validation."
+}

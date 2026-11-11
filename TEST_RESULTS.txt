@@ -1,20 +1,21 @@
-LODE.ai / Atlas.ai 0.10.3-beta
+LODE.ai / Atlas.ai 0.11.2-beta
 
-Automated regression tests: 45 passed.
-Python compilation: passed for app.py, lode and tests.
+Python compilation: passed for app.py, lode, benchmarks and tests.
+Automated regression tests: 66 passed.
+Structural benchmark runner: BM001–BM006 all PASS using the reference methods described below.
 
-Dashboard cleanup coverage:
-- Overview excludes API-key readiness, Tesseract/CLIP implementation status, developer diagnostics and build identifiers.
-- Persistent sidebar excludes API-key readiness, engine implementation labels and build identifiers.
-- Dedicated Developer & Evaluation diagnostics remain available.
-- Raw code widgets and direct exception-string rendering remain prohibited by UI safety tests.
+Benchmark methods:
+- BM001–BM003: closed-form analytical beam statics.
+- BM004: closed-form propped-cantilever compatibility solution compared with Atlas 2D frame stiffness solver.
+- BM005–BM006: separately implemented NumPy matrix assembly compared with Atlas frame solver for nodal displacements, support reactions and member end actions.
 
-Existing engineering regression coverage remains included for beam analysis, drawing extraction, detailing, retrieval, verification, vision validation and Groq request construction.
+Harness tests cover tool allowlisting, task input validation, execution success/failure/rejection, verified-observation filtering, and audit redaction.
 
 Not performed:
-- Live Groq inference.
-- Full Streamlit browser or interactive smoke test.
-- Hosted Streamlit deployment test.
-- Drawing dataset accuracy evaluation.
-- Independent structural benchmark validation.
+- Independent OpenSees execution/comparison for BM005/BM006.
+- Experimental or real-building validation.
 - Full BS 8110 compliance validation.
+- Live Groq inference.
+- Full Streamlit browser/interactive smoke test.
+- Hosted deployment test.
+- Drawing dataset accuracy evaluation.

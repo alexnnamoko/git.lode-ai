@@ -29,17 +29,20 @@ from lode.drawing.extract import extract_pdf_pages, render_pdf_page, candidate_d
 from lode.drawing.ocr import configure_tesseract, image_ocr
 from lode.drawing.preprocess import enhance_for_ocr
 from lode.analysis.beam_analysis import analyse_simply_supported_beam
+from lode.analysis.frame_model import build_regular_frame
+from lode.analysis.frame2d import analyse_frame_2d
 from lode.detailing.schedule import beam_schedule
 from lode.ai.client import DEFAULT_MODEL, analyse_image, ask_text, parse_json_response, test_connection
 from lode.ai.context import build_project_context
 from lode.drawing.validation import normalise_vision_response, merge_review_observations
+from lode.harness import HarnessController, ToolRouter, build_execution_context
 
-APP_VERSION = "0.10.3-beta"
+APP_VERSION = "0.11.2-beta"
 WARNING = ("ACADEMIC RESEARCH PROTOTYPE — NOT FOR CONSTRUCTION. All drawing interpretations, "
            "loads, assumptions, calculations, code references and reinforcement details require "
            "independent verification by a qualified structural engineer against the complete applicable standards.")
 PAGES = ["Overview", "Projects", "Drawing Studio", "Engineer Verification", "Developer & Evaluation", "Structural Modelling",
-         "Structural Analysis", "Beam Design", "Slab Design", "Column Design",
+         "Structural Analysis", "Beam Statics", "Beam Design", "Slab Design", "Column Design",
          "Reinforcement Detailing", "Engineering Adviser", "Reports & Exports", "Scope & Limitations"]
 
 st.set_page_config(page_title="LODE.ai | Atlas.ai", page_icon="🏗️", layout="wide", initial_sidebar_state="expanded")
@@ -71,11 +74,25 @@ hr{border-color:#e5ebf1}
 
 def init_state():
     defaults = {"project_name":"Untitled project", "project_notes":"", "verified_data":[], "design_results":{},
-                "analysis":None, "detail":None, "drawing_analysis":None, "drawing_name":"", "drawing_page":1,
+                "analysis":None, "frame_model":None, "frame_analysis":None, "detail":None, "drawing_analysis":None, "drawing_name":"", "drawing_page":1,
                 "knowledge_hits":[], "last_answer_query":"", "ai_chat":[], "model":DEFAULT_MODEL, "report_notes":"", "ocr_text":"", "adviser_messages":[], "last_answer_sources":[], "drawing_validation_warnings":[], "developer_diagnostics":[]}
     for k,v in defaults.items():
         if k not in st.session_state: st.session_state[k]=v
 init_state()
+
+
+def harness_run(task, tool_name, tool_fn, inputs, **tool_kwargs):
+    """Execute a fixed application tool through the Atlas harness controller."""
+    router = ToolRouter()
+    router.register(tool_name, tool_fn)
+    controller = HarnessController(router, audit_sink=lambda record: st.session_state.setdefault("harness_audit", []).append(record))
+    context = build_execution_context(
+        task=task,
+        project_name=st.session_state.get("project_name", ""),
+        project_notes=st.session_state.get("project_notes", ""),
+        verified_observations=st.session_state.get("verified_data", []),
+    )
+    return controller.execute(task=task, tool=tool_name, inputs=inputs, context=context, **tool_kwargs)
 
 with st.sidebar:
     st.markdown("<div style='font-size:1.35rem;font-weight:800;letter-spacing:-.04em'>LODE<span style='color:#62d6d4'>.ai</span></div><div style='font-size:.75rem;color:#a9c3d6;margin-bottom:12px'>ATLAS.AI · STRUCTURAL DESIGN</div>", unsafe_allow_html=True)
@@ -322,7 +339,7 @@ elif page=="Drawing Studio":
             try:
                 with st.spinner("Sending selected page to the Groq-hosted vision model…"):
                     mime="image/png" if is_pdf else (uploaded.type or mimetypes.guess_type(fname)[0] or "image/png")
-                    raw_response=analyse_image(page_image,mime,prompt,st.session_state.ocr_text,st.session_state.model)
+                    raw_response=harness_run("drawing_vision", "groq_vision", analyse_image, {"image_bytes":page_image,"mime_type":mime,"prompt":prompt}, image_bytes=page_image,mime_type=mime,prompt=prompt,ocr_text=st.session_state.ocr_text,model=st.session_state.model)
                     parsed=parse_json_response(raw_response)
                     normalised=normalise_vision_response(parsed)
                     st.session_state.drawing_analysis=normalised
@@ -420,35 +437,110 @@ elif page=="Developer & Evaluation":
                 st.rerun()
         else:
             st.caption("No application errors have been recorded in this session.")
-    st.markdown("#### 4 · Controlled test record")
+    st.markdown("#### 4 · Harness execution records")
+    st.caption("Records successful, rejected and failed harness executions in this browser session. Raw drawing bytes and credentials are excluded.")
+    harness_records = st.session_state.get("harness_audit", [])
+    if harness_records:
+        st.dataframe(pd.DataFrame(harness_records), hide_index=True, use_container_width=True)
+        st.download_button("Export harness audit (JSON)", json.dumps(harness_records, indent=2, ensure_ascii=False),
+                           file_name="atlas_harness_audit.json", mime="application/json")
+        if st.button("Clear harness audit history"):
+            st.session_state.harness_audit = []
+            st.rerun()
+    else:
+        st.info("No harness executions recorded in this session yet.")
+    st.markdown("#### 5 · Controlled test record")
     with st.expander("Evaluation guidance"):
         st.write("For a defensible evaluation, create a labelled test set of drawings and manually record ground-truth labels, dimensions and bounding boxes. Compare model proposals with that reference; report precision, recall, F1, exact text accuracy and dimension error. A successful API response is not proof of accuracy.")
     st.download_button("Download blank vision ground-truth template", "drawing_id,page,element_type,label,value,unit,x1_norm,y1_norm,x2_norm,y2_norm,reviewer,notes\n", file_name="vision_ground_truth_template.csv",mime="text/csv")
 
 elif page=="Structural Modelling":
-    heading("Structural modelling","A schematic grid workspace for organising verified structural information. It is not a finite-element model.")
-    a,b,c=st.columns(3); nx=a.number_input("Grid bays in X",1,8,3); ny=b.number_input("Grid bays in Y",1,8,2); sx=c.number_input("Typical spacing (m)",1.0,15.0,4.0)
-    fig,ax=plt.subplots(figsize=(9,5))
-    for i in range(int(nx)+1): ax.plot([i*sx]* (int(ny)+1),[j*sx for j in range(int(ny)+1)],color="#8aa1b5",lw=1.4)
-    for j in range(int(ny)+1): ax.plot([i*sx for i in range(int(nx)+1)],[j*sx]*(int(nx)+1),color="#8aa1b5",lw=1.4)
-    for i in range(int(nx)+1):
-        for j in range(int(ny)+1): ax.scatter(i*sx,j*sx,s=75,color="#167b83",zorder=3); ax.text(i*sx+.08,j*sx+.08,f"C{i+1}{j+1}",fontsize=8)
-    ax.set_aspect("equal"); ax.set_xlabel("X (m)"); ax.set_ylabel("Y (m)"); ax.set_title("Indicative grid — nodes shown as assumed column positions"); ax.grid(alpha=.15); st.pyplot(fig); plt.close(fig)
-    st.warning("Grid is schematic only. Member sizes, connectivity, stiffness, supports, load paths and design actions are not inferred or analysed by this view.")
-    if st.button("Save grid summary"):
-        st.session_state.model_summary={"grid_bays_x":int(nx),"grid_bays_y":int(ny),"typical_spacing_m":sx,"status":"Schematic only; not an analytical model."}; st.success("Grid summary saved to session.")
+    heading("Structural modelling", "Create a parameterised 2D frame with explicit member placement, section properties and connectivity.")
+    with st.form("frame_model_form"):
+        st.markdown("#### 1 · Frame geometry")
+        a,b,c=st.columns(3)
+        bays=a.number_input("Number of bays",1,8,2)
+        storeys=b.number_input("Number of storeys",1,8,2)
+        bay_width=c.number_input("Typical bay width (m)",min_value=0.5,max_value=20.0,value=4.0)
+        a,b=st.columns(2)
+        storey_height=a.number_input("Storey height (m)",min_value=0.5,max_value=10.0,value=3.0)
+        elastic_modulus=b.number_input("Concrete elastic modulus (GPa)",min_value=1.0,max_value=60.0,value=25.0,help="User-specified elastic modulus for linear-elastic analysis; not inferred from concrete grade.")
+        st.markdown("#### 2 · Member section properties")
+        st.caption("Rectangular gross sections are assumed. Beam and column dimensions are entered separately.")
+        a,b,c,d=st.columns(4)
+        beam_width=a.number_input("Beam width (mm)",150,1000,225,step=25)
+        beam_depth=b.number_input("Beam depth (mm)",200,1500,450,step=25)
+        col_width=c.number_input("Column width (mm)",150,1500,300,step=25)
+        col_depth=d.number_input("Column depth (mm)",150,1500,300,step=25)
+        build=st.form_submit_button("Generate structural frame",type="primary")
+    if build:
+        try:
+            st.session_state.frame_model=build_regular_frame(int(bays),int(storeys),bay_width,storey_height,beam_width,beam_depth,col_width,col_depth,elastic_modulus)
+            st.session_state.frame_analysis=None
+            st.success("Frame model generated. Review the geometry, member schedule and assumptions below.")
+        except Exception as e: report_error("Structural modelling",e,"The frame model could not be generated. Check the geometry and section inputs.")
+    model=st.session_state.get("frame_model")
+    if model:
+        st.markdown("#### Model preview")
+        fig,ax=plt.subplots(figsize=(10,5))
+        for m in model["members"]:
+            ni=next(n for n in model["nodes"] if n["id"]==m["i"]); nj=next(n for n in model["nodes"] if n["id"]==m["j"])
+            ax.plot([ni["x_m"],nj["x_m"]],[ni["y_m"],nj["y_m"]],linewidth=3 if m["type"]=="Beam" else 2)
+        for n in model["nodes"]: ax.scatter(n["x_m"],n["y_m"],s=22); ax.annotate(n["id"],(n["x_m"],n["y_m"]),xytext=(3,4),textcoords="offset points",fontsize=7)
+        ax.set_aspect("equal"); ax.set_xlabel("X (m)"); ax.set_ylabel("Storey elevation (m)"); ax.grid(alpha=.2); st.pyplot(fig); plt.close(fig)
+        a,b,c=st.columns(3); a.metric("Nodes",len(model["nodes"])); b.metric("Members",len(model["members"])); c.metric("Base restraints",len(model["supports"]))
+        st.markdown("#### Member schedule")
+        st.dataframe(pd.DataFrame([{"Member":m["id"],"Type":m["type"],"From":m["i"],"To":m["j"],"Section (mm)":m["section_mm"],"Connectivity":"Rigid joint"} for m in model["members"]]),use_container_width=True,hide_index=True)
+        st.markdown("#### Model assumptions")
+        st.info("Regular planar frame; beams and columns are connected at rigid joints. All base nodes are fixed. Gross rectangular section properties and one common elastic modulus are used. The generated model is an idealisation and must be checked against project drawings.")
+        st.download_button("Download structural model (JSON)",json.dumps(model,indent=2),file_name="atlas_frame_model.json",mime="application/json")
+    else:
+        st.info("Enter the frame geometry and section properties, then generate the model. No structural model has been created yet.")
 
 elif page=="Structural Analysis":
-    heading("Structural analysis","Simply supported beam statics for full-span UDL and downward point loads.")
+    heading("Structural analysis", "Run a first-order 2D frame analysis using the direct stiffness method on the generated structural model.")
+    model=st.session_state.get("frame_model")
+    if not model:
+        st.info("Generate a structural frame first in Structural Modelling. The analysis engine needs member geometry, properties and connectivity.")
+    else:
+        top_nodes=[n for n in model["nodes"] if abs(n["y_m"]-model["storeys"]*model["storey_height_m"])<1e-8]
+        st.caption(f"Active model: {model['bays']} bays · {model['storeys']} storeys · {len(model['members'])} members · fixed bases")
+        with st.form("frame_analysis_form"):
+            st.markdown("#### Applied nodal loading")
+            a,b=st.columns(2)
+            fx=a.number_input("Horizontal load at each top-storey joint (kN)",value=10.0,help="Positive acts in global +X direction.")
+            fy=b.number_input("Vertical load at each top-storey joint (kN)",value=-20.0,help="Negative acts downward in global Y direction.")
+            run=st.form_submit_button("Analyse structural frame",type="primary")
+        if run:
+            try:
+                loads={n["id"]:[fx,fy,0.0] for n in top_nodes}
+                st.session_state.frame_analysis=harness_run("frame_analysis", "frame_solver", analyse_frame_2d, {"nodes":model["nodes"],"members":model["members"],"supports":model["supports"],"loads":loads}, nodes=model["nodes"],members=model["members"],supports=model["supports"],nodal_loads=loads)
+            except Exception as e: report_error("Structural analysis",e,"The frame could not be analysed. Review the supports, connectivity, properties and loading.")
+        result=st.session_state.get("frame_analysis")
+        if result:
+            st.success("Frame analysis completed by the linear-elastic direct stiffness solver. Review all assumptions and results independently.")
+            nr=pd.DataFrame(result["nodes"]); mr=pd.DataFrame([{"Member":m["member_id"],"Length (m)":m["length_m"],"i-end N (kN)":m["local_end_actions_kN_kNm"][0],"i-end V (kN)":m["local_end_actions_kN_kNm"][1],"i-end M (kN·m)":m["local_end_actions_kN_kNm"][2],"j-end N (kN)":m["local_end_actions_kN_kNm"][3],"j-end V (kN)":m["local_end_actions_kN_kNm"][4],"j-end M (kN·m)":m["local_end_actions_kN_kNm"][5]} for m in result["members"]])
+            st.markdown("#### Joint displacements and support reactions")
+            st.dataframe(nr,use_container_width=True,hide_index=True)
+            st.markdown("#### Member local end actions")
+            st.dataframe(mr,use_container_width=True,hide_index=True)
+            st.download_button("Download analysis results (CSV)",mr.to_csv(index=False),file_name="atlas_frame_member_actions.csv",mime="text/csv")
+            with st.expander("Analysis method and limitations"):
+                st.write(result["method"])
+                for item in result["limitations"]: st.write("• "+item)
+            show_warning()
+
+elif page=="Beam Statics":
+    heading("Simply supported beam statics", "Retained single-beam analysis for full-span UDL and downward point loads.")
     with st.form("analysis_form"):
         a,b,c=st.columns(3); span=a.number_input("Beam span (m)",min_value=.1,value=6.0); udl=b.number_input("Full-span UDL (kN/m)",min_value=0.0,value=10.0); n=c.number_input("Number of point loads",0,5,1)
         point_loads=[]
         for i in range(int(n)):
-            x,y=st.columns(2); px=x.number_input(f"Point load {i+1} position from A (m)",0.0,float(span),float(span/2),key=f"px{i}"); py=y.number_input(f"Point load {i+1} (kN)",0.0,value=20.0,key=f"py{i}"); point_loads.append({"x_m":px,"load_kn":py})
-        run=st.form_submit_button("Analyse beam",type="primary")
+            x,y=st.columns(2); px=x.number_input(f"Point load {i+1} position from A (m)",0.0,float(span),float(span/2),key=f"beamstat_px{i}"); py=y.number_input(f"Point load {i+1} (kN)",0.0,value=20.0,key=f"beamstat_py{i}"); point_loads.append({"x_m":px,"load_kn":py})
+        run=st.form_submit_button("Analyse simply supported beam",type="primary")
     if run:
-        try: st.session_state.analysis=analyse_simply_supported_beam(span,udl,point_loads)
-        except Exception as e: report_error("Workflow", e, "This operation could not be completed. Check the inputs and try again.")
+        try: st.session_state.analysis=harness_run("beam_statics", "beam_statics_solver", analyse_simply_supported_beam, {"span_m":span,"udl_kn_m":udl,"point_loads":point_loads}, span_m=span,udl_kn_m=udl,point_loads=point_loads)
+        except Exception as e: report_error("Beam statics",e,"This operation could not be completed. Check the inputs and try again.")
     if st.session_state.analysis:
         r=st.session_state.analysis; a,b,c,d=st.columns(4); a.metric("Reaction A",f"{r['reaction_A_kN']:.2f} kN"); b.metric("Reaction B",f"{r['reaction_B_kN']:.2f} kN"); c.metric("Max |V|",f"{r['max_abs_shear_kN']:.2f} kN"); d.metric("Max |M|",f"{r['max_abs_moment_kNm']:.2f} kN·m")
         plot_sfd_bmd(r); st.success(f"Equilibrium checks: vertical residual {r['equilibrium_vertical_error_kN']:.3g} kN; moment residual {r['equilibrium_moment_error_kNm']:.3g} kN·m")
@@ -464,7 +556,7 @@ elif page=="Beam Design":
         vc=st.number_input("Verified concrete shear capacity vc (N/mm²); 0 omits shear screening",0.0,value=0.0)
         run=st.form_submit_button("Design beam",type="primary")
     if run:
-        try: show_result(design_beam(span_m=span,width_mm=width,overall_depth_mm=depth,cover_mm=cover,link_diameter_mm=link,main_bar_diameter_mm=bar,fcu_nmm2=fcu,fy_nmm2=fy,dead_load_kn_m=g,imposed_load_kn_m=q,shear_concrete_capacity_n_mm2=vc or None,link_steel_fy_nmm2=fyv),"Beam")
+        try: show_result(harness_run("beam_design", "rc_beam_design", design_beam, {"span_m":span,"width_mm":width,"overall_depth_mm":depth}, span_m=span,width_mm=width,overall_depth_mm=depth,cover_mm=cover,link_diameter_mm=link,main_bar_diameter_mm=bar,fcu_nmm2=fcu,fy_nmm2=fy,dead_load_kn_m=g,imposed_load_kn_m=q,shear_concrete_capacity_n_mm2=vc or None,link_steel_fy_nmm2=fyv),"Beam")
         except Exception as e: report_error("Workflow", e, "This operation could not be completed. Check the inputs and try again.")
 
 elif page=="Slab Design":
@@ -475,7 +567,7 @@ elif page=="Slab Design":
         a,b=st.columns(2); g=a.number_input("Dead load Gk (kN/m²)",0.0,value=4.0); q=b.number_input("Imposed load Qk (kN/m²)",0.0,value=2.0)
         run=st.form_submit_button("Design slab",type="primary")
     if run:
-        try: show_result(design_one_way_slab(span_m=span,thickness_mm=thick,cover_mm=cover,bar_diameter_mm=bar,fcu_nmm2=fcu,fy_nmm2=fy,dead_load_kn_m2=g,imposed_load_kn_m2=q),"Slab")
+        try: show_result(harness_run("slab_design", "rc_slab_design", design_one_way_slab, {"span_m":span,"thickness_mm":thick}, span_m=span,thickness_mm=thick,cover_mm=cover,bar_diameter_mm=bar,fcu_nmm2=fcu,fy_nmm2=fy,dead_load_kn_m2=g,imposed_load_kn_m2=q),"Slab")
         except Exception as e: report_error("Workflow", e, "This operation could not be completed. Check the inputs and try again.")
 
 elif page=="Column Design":
@@ -486,7 +578,7 @@ elif page=="Column Design":
         count=st.number_input("Number of longitudinal bars",4,value=8,step=1); confirmed=st.checkbox("I have independently confirmed this is a short column and axial-only assumptions are appropriate.")
         run=st.form_submit_button("Design column",type="primary")
     if run:
-        try: show_result(design_short_axially_loaded_column(width_mm=width,depth_mm=depth,axial_load_kn=load,fcu_nmm2=fcu,fy_nmm2=fy,bar_diameter_mm=bar,number_of_bars=int(count),confirmed_short_column=confirmed),"Column")
+        try: show_result(harness_run("column_design", "rc_column_design", design_short_axially_loaded_column, {"width_mm":width,"depth_mm":depth,"axial_load_kn":load}, width_mm=width,depth_mm=depth,axial_load_kn=load,fcu_nmm2=fcu,fy_nmm2=fy,bar_diameter_mm=bar,number_of_bars=int(count),confirmed_short_column=confirmed),"Column")
         except Exception as e: report_error("Workflow", e, "This operation could not be completed. Check the inputs and try again.")
 
 elif page=="Reinforcement Detailing":
@@ -525,7 +617,7 @@ elif page=="Engineering Adviser":
         )
         try:
             with st.spinner("Atlas is reviewing your question and relevant project references…"):
-                answer=ask_text(query,context=source_context,history=previous_history,
+                answer=harness_run("engineering_adviser", "groq_text_adviser", ask_text, {"query":query}, prompt=query, context=source_context,history=previous_history,
                     project_context=project_context,model=st.session_state.model)
         except Exception as e:
             answer="I couldn't connect to the AI service, so I haven't generated an engineering answer. Check the connection settings and try again."

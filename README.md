@@ -1,6 +1,6 @@
 # LODE.ai / Atlas.ai — Groq-hosted multimodal build
 
-**Current refinement package:** 0.10.3-beta
+**Current refinement package:** 0.11.2-beta
 
 Academic research prototype for exploring a multimodal engineering assistant for reinforced-concrete design. **Not for construction or independent engineering approval.**
 
@@ -90,3 +90,31 @@ This package is an academic prototype. The structural modules are limited, and t
 - **Model not found / access denied:** Check the current Groq model catalogue and confirm that your account can access the model ID configured in `LODE_MODEL`.
 - **Drawing vision request fails:** Check image file size and format, then test with a smaller PNG/JPEG. Groq's vision documentation lists current image limits.
 - **Tesseract not detected:** Install the Tesseract executable separately and set `TESSERACT_CMD` in `.env` to its full path if it is not on PATH.
+
+## Structural analysis benchmark suite (v1.1)
+
+Run the six reproducible structural analysis benchmark cases from the project root:
+
+```powershell
+python -m benchmarks.run_benchmarks
+```
+
+The run writes `benchmarks/benchmark_run_results.json`. BM001–BM003 use closed-form beam solutions; BM004 compares the frame solver with a closed-form propped-cantilever compatibility solution; BM005–BM006 compare Atlas with a separately implemented NumPy stiffness solver. These are limited verification checks, not commercial-software validation, experimental validation, BS 8110 design verification or construction approval. See `RELEASE_NOTES_v0.11.1-beta.md`.
+
+
+## Independent OpenSees comparison (BM005/BM006)
+OpenSees Tcl comparison scripts and execution instructions are provided in `benchmarks/opensees/`. These scripts are prepared but have not yet been run; do not claim OpenSees verification until the CSV outputs are generated and compared. The current BM005/BM006 benchmark runner compares Atlas with a separately implemented NumPy solver only.
+
+
+## Harness engineering layer (v0.11.2-beta)
+
+This build adds an application-side harness around selected existing workflows. The harness currently provides:
+
+- A central execution controller and deterministic task orchestrator with the sequence validate → approved task-to-tool route → allowlisted tool call → output assessment → audit record.
+- Task contracts for drawing vision, engineering-adviser requests, beam statics, frame analysis and the selected RC design workflows.
+- A small allowlisted tool router. The language model is not given arbitrary Python, shell or filesystem execution access.
+- Bounded project context that includes only drawing observations explicitly marked `Verified by engineer`.
+- Output notices that explicitly state that harness completion is not engineering approval.
+- Session-level audit records for completed, rejected and failed calls. Raw image bytes and credential-like fields are redacted from audit inputs. Records can be exported from Developer & Evaluation as JSON.
+
+The harness is an initial control layer, not a fully autonomous agent framework. It does not yet provide persistent audit storage, user authentication/roles, distributed job queues, model-independent tool calling, full provenance of every engineering parameter, or independent structural verification. Existing deterministic calculation engines and existing design verifiers remain responsible for their respective calculations/checks. Live Groq calls and browser/deployment smoke tests were not performed as part of this source update.

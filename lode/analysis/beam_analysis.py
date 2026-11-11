@@ -38,3 +38,65 @@ def analyse_simply_supported_beam(span_m: float, udl_kn_m: float = 0.0, point_lo
       'equilibrium_vertical_error_kN':vertical_error,'equilibrium_moment_error_kNm':moment_error,
       'x_m':xs,'shear_kN':shear,'moment_kNm':moment,
       'sign_convention':'Sagging bending moment positive; positive shear follows the left-face convention used by the equations.'}
+
+
+def analyse_cantilever_point_load(span_m: float, point_load_kn: float, samples: int = 201):
+    """First-order elastic statics for a cantilever with a downward free-end load.
+
+    Returns reactions and the internal shear/moment diagram. Positive load is downward;
+    the reported fixed-end reaction moment is counter-clockwise and the internal
+    fixed-end bending moment is hogging (negative under the stated convention).
+    """
+    if not math.isfinite(span_m) or span_m <= 0:
+        raise ValueError('Span must be a positive finite value.')
+    if not math.isfinite(point_load_kn) or point_load_kn < 0:
+        raise ValueError('Point load must be finite and non-negative.')
+    samples=max(21, int(samples))
+    xs=[span_m*i/(samples-1) for i in range(samples)]
+    shear=[-point_load_kn for _ in xs]
+    moment=[-point_load_kn*(span_m-x) for x in xs]
+    return {
+        'member':'Cantilever beam','span_m':span_m,'point_load_kn':point_load_kn,
+        'reaction_vertical_kN':point_load_kn,
+        'reaction_moment_kNm':point_load_kn*span_m,
+        'max_abs_shear_kN':point_load_kn,
+        'max_abs_moment_kNm':point_load_kn*span_m,
+        'max_moment_location_m':0.0,'x_m':xs,'shear_kN':shear,'moment_kNm':moment,
+        'equilibrium_vertical_error_kN':0.0,'equilibrium_moment_error_kNm':0.0,
+        'sign_convention':'Downward load; internal hogging moment is negative.'
+    }
+
+def analyse_propped_cantilever_central_point_load(span_m: float, point_load_kn: float, samples: int = 201):
+    """Closed-form propped cantilever with a central downward point load.
+
+    Fixed at x=0 and vertically propped (roller) at x=L. Linear-elastic Euler-Bernoulli
+    solution for a prismatic member. The load is at L/2.
+    """
+    if not math.isfinite(span_m) or span_m <= 0:
+        raise ValueError('Span must be a positive finite value.')
+    if not math.isfinite(point_load_kn) or point_load_kn < 0:
+        raise ValueError('Point load must be finite and non-negative.')
+    P,L=point_load_kn,span_m
+    rb=5*P/16; ra=11*P/16; fixed_reaction_moment=3*P*L/16
+    a=L/2
+    samples=max(21,int(samples))
+    xs=sorted(set([L*i/(samples-1) for i in range(samples)]+[a]))
+    shear=[]; moment=[]
+    for x in xs:
+        v=ra-(P if x>=a else 0.0)
+        m=-fixed_reaction_moment+ra*x-(P*max(0.0,x-a))
+        shear.append(v); moment.append(m)
+    # Moment equilibrium about the fixed end and vertical equilibrium.
+    verr=abs(ra+rb-P)
+    merr=abs(fixed_reaction_moment+rb*L-P*a)
+    return {
+        'member':'Propped cantilever beam','span_m':L,'point_load_kn':P,'load_position_m':a,
+        'reaction_A_vertical_kN':ra,'reaction_B_vertical_kN':rb,
+        'reaction_A_moment_kNm':fixed_reaction_moment,
+        'max_abs_shear_kN':max(abs(v) for v in shear),
+        'max_abs_moment_kNm':max(abs(m) for m in moment),
+        'max_moment_location_m':xs[max(range(len(moment)),key=lambda i:abs(moment[i]))],
+        'equilibrium_vertical_error_kN':verr,'equilibrium_moment_error_kNm':merr,
+        'x_m':xs,'shear_kN':shear,'moment_kNm':moment,
+        'sign_convention':'Internal hogging moment at fixed end is negative; sagging is positive.'
+    }

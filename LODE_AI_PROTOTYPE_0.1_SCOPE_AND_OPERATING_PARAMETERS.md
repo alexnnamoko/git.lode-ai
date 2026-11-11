@@ -46,7 +46,11 @@ The configured model identifier is an environment setting, not a guarantee that 
 - Only observations marked `Verified by engineer` are eligible for inclusion in Atlas project context.
 - The application does not independently authenticate the reviewer or certify the correctness of a confirmation.
 
-### 3.4 Structural analysis and preliminary design modules
+### 3.4 Structural modelling, analysis and preliminary design modules
+- Manual generation of a regular planar multi-bay, multi-storey 2D frame from user-entered geometry.
+- Explicit beam and column placement/connectivity at generated grid nodes, with user-entered rectangular gross section dimensions and elastic modulus.
+- Fixed-base support idealisation and a linear-elastic 2D Euler-Bernoulli frame solver using the direct stiffness method.
+- Applied nodal horizontal/vertical forces and nodal moments; reported joint displacements, support reactions and member local end actions.
 - Simply supported beam statics for full-span uniformly distributed load and downward point loads.
 - Limited preliminary rectangular RC beam design for the implemented simply supported/UDL case.
 - Limited preliminary one-way slab design using a one-metre design strip and simply supported assumptions.
@@ -54,7 +58,7 @@ The configured model identifier is an environment setting, not a guarantee that 
 - Preliminary beam reinforcement bar selection/schedule from a supplied required steel area.
 - Selected independent arithmetic checks and equilibrium residual checks.
 
-The precise calculation assumptions and limitations shown in each module must be read before interpreting its result. A passed arithmetic check is not a code-compliance check.
+The 2D frame solver is a research implementation for regular planar frames. It assumes prismatic members, rigid joints, gross section properties, small displacements and first-order linear-elastic behaviour. Only nodal loads are currently supported; member distributed loads, end releases, 3D behaviour, shear deformation, P-Delta effects, buckling and dynamic analysis are not implemented. The solver is not independently validated for professional use. The precise calculation assumptions and limitations shown in each module must be read before interpreting its result. A passed arithmetic check is not a code-compliance check.
 
 ### 3.5 Reports and project handling
 - Session-level project metadata and evidence.
@@ -89,13 +93,13 @@ Atlas.ai must be treated as an assistant for exploration and explanation. If key
 - Model-reported certainty is qualitative and uncalibrated; it is not a probability of correctness.
 - Bounding boxes are approximate model proposals and have not been established as measurement-grade geometry.
 - Dimensions, reinforcement marks, member labels, grids and element classifications require comparison with the original drawing and engineer confirmation.
-- No automatic verified building geometry, connected analytical model, finite-element model or load-path model is produced.
+- Drawing uploads do not automatically generate or verify the structural model. The new manually generated 2D frame model is a limited linear-elastic analysis model, not a full building, 3D, second-order or certified finite-element analysis.
 
 ## 7. Explicit exclusions
 
 The prototype does not claim to provide:
 - Complete or certified BS 8110 compliance checking.
-- Full building/global frame analysis, finite-element analysis, load-path analysis or automatic structural modelling from drawings.
+- Full 3D/global building analysis, second-order analysis, load-path analysis or automatic structural modelling from drawings. The limited manually defined planar 2D frame solver is not a substitute for these capabilities.
 - Full continuous, doubly reinforced or flanged beam design; comprehensive torsion, shear, deflection and crack-width checks.
 - Full two-way slab, punching shear, foundation, retaining-wall, slender-column or biaxial-column design.
 - Construction-ready reinforcement detailing, anchorage/lap/curtailment validation, bar bending schedules certified for construction, or production DXF drawings.

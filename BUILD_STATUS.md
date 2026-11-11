@@ -1,33 +1,30 @@
 # Build status — LODE.ai / Atlas.ai
 
-**Build:** 0.10.3-beta — interface safety and controlled prototype test preparation
+**Build:** 0.11.2-beta — initial harness engineering integration
 
-## Included
-- Groq-hosted Atlas text and vision integration retained.
-- Improved project/session context: project notes and only engineer-verified drawing observations are supplied as project context.
-- Role-preserving recent chat history retained and clearly separated from retrieved research material.
-- Stronger instructions for missing design inputs, source attribution, uncertainty, general engineering explanation and engineer review.
-- Corrected numeric clause tokenisation and added strict explicit-clause retrieval, BM25-style lexical ranking and source provenance.
-- Added a bounded retrieval-context formatter that labels the bundled knowledge as unverified research-dataset material.
-- Added drawing response schema validation, bounding-box validation, model-certainty disclaimers and duplicate suppression in engineer review handoff.
-- Polished the Streamlit navigation and calculation result presentation; moved technical dataset audit and CLIP diagnostics into Developer & Evaluation.
-- Replaced direct exception text in normal workflows with plain-language feedback; retained session-scoped technical diagnostics in Developer & Evaluation.
-- Removed the raw exception `st.code()` display from the Engineering Adviser.
-- Added the Prototype 0.1 Scope & Operating Parameters document (Markdown and PDF).
-- Existing preliminary beam, one-way slab and short axial column modules and selected arithmetic verification checks preserved.
+## Harness additions
+- Central controller and deterministic task orchestrator: input validation → approved task-to-tool route → allowlisted tool execution → output safety assessment → audit logging.
+- Explicit task contracts for beam statics, frame analysis, drawing vision, Engineering Adviser and selected beam/slab/column design workflows.
+- Allowlisted tool router; no arbitrary model-triggered Python, shell or filesystem execution.
+- Bounded project context; only engineer-verified drawing observations are included as confirmed facts.
+- Session audit records for completed, rejected and failed harness calls, with raw image bytes and credential-like fields redacted.
+- Developer & Evaluation page displays and exports harness audit records.
 
-## Validation
-- Python compilation passed for the edited application and modules.
-- Automated tests: **43 passed** (including UI safety source checks).
-- No live Groq API call was made.
-- No full Streamlit browser smoke test was performed; Streamlit is not installed in the build environment.
-- No live Groq inference or Tesseract drawing benchmark was performed.
-- No labelled drawing-interpretation benchmark, independent structural benchmark campaign or full BS 8110 compliance validation was performed.
+## Existing engineering capabilities retained
+- Drawing upload, OCR, vision interpretation and engineer review.
+- Existing beam, slab and column design workflows.
+- Existing 2D frame model and linear-elastic frame analysis.
+- Existing BM001–BM006 benchmark runner and OpenSees Tcl comparison preparation.
 
-## Limitations
-- Retrieval remains lexical; semantic/vector retrieval is not yet implemented.
-- Knowledge datasets remain research aids, not a complete executable or certified BS 8110 implementation.
-- Beam, slab and column design capabilities remain limited and omit important checks and design cases.
-- The verification layer checks selected arithmetic only; it does not certify code compliance or structural safety.
-- Model-generated drawing content and bounding boxes require engineer verification.
-- BEME, thesis Chapters 4 and 5, fine-tuning/LoRA, database/accounts and public deployment remain out of scope for this build.
+## Validation performed for this update
+- Python compilation: passed.
+- Automated regression tests: 66 passed.
+- `python -m benchmarks.run_benchmarks`: BM001–BM006 all PASS under the benchmark runner's documented reference methods.
+
+## Important limitations
+- BM005–BM006 remain cross-implementation checks against a separately implemented NumPy solver, not OpenSees verification.
+- The harness is an initial in-process control layer, not a complete autonomous-agent platform.
+- Audit records are session-only and are not persisted to a database.
+- No authentication, roles, multi-user isolation, queueing, or durable audit storage is implemented.
+- No live Groq inference, interactive browser smoke test or hosted deployment test was performed.
+- Existing engineering scope limitations remain unchanged; harness completion does not establish code compliance or engineering approval.
